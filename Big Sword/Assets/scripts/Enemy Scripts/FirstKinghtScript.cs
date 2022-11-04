@@ -7,6 +7,6 @@ public class FirstKinghtScript : MonoBehaviour
     public GameObject Door;
    void Update()
     {
-        if (GetComponent<KnightCombat>().dead) { Door.SetActive(false); }
+        if (GetComponent<GuardCombat>().dead) { Door.SetActive(false); }
     }
 }

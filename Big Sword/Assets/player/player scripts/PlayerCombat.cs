@@ -11,8 +11,8 @@ public class PlayerCombat : MonoBehaviour
     Animator anim;
     // public Collider BossSword;
     public Transform player; //, boss;
-    public GameObject HPObj;// bonfire;
-    public TextMeshProUGUI FlaskNum;
+    GameObject HPObj;// bonfire;
+   // public TextMeshProUGUI FlaskNum;
 
     [Header("Floats")]
 
@@ -47,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
         ResMod = 1f;
 
      //   SlugDMG = 100f;
-        EnemyDMG = 10f;
+        EnemyDMG = 8f;
         flasks = MaxFlask;
     }
 
@@ -264,21 +264,18 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
- 
 
-        
-               if (other.CompareTag("instant kill"))
-               {
-                   HP -= 1000;
-               }
-
-               if (GetComponentInParent<PlayerMove>().rollstart == false)
+        if (GetComponentInParent<PlayerMove>().rollstart == false)
                {
                    if (other.CompareTag("EnemyAttack"))
                    {
                        HP -= EnemyDMG ;
                    }
-               } 
+               }   
+        if (other.CompareTag("instant kill"))
+               {
+                   HP -= 1000;
+               }
     }
 }
 
