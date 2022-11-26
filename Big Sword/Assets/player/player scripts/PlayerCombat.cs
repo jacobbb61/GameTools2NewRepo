@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Objects")]
+    public Object RespawnScene;
 
     Animator anim;
     // public Collider BossSword;
@@ -14,7 +14,7 @@ public class PlayerCombat : MonoBehaviour
     GameObject HPObj;// bonfire;
    // public TextMeshProUGUI FlaskNum;
 
-    [Header("Floats")]
+
 
     public float MaxHP, StrMod, ResMod, ATK1DMG, ATK2DMG;
     public float HP;
@@ -23,9 +23,9 @@ public class PlayerCombat : MonoBehaviour
     public int flasks;
     public int MaxFlask;
 
-     private float EnemyDMG;//SlugDMG,
+    private float EnemyDMG;//SlugDMG,
 
-    [Header("Bools")]
+
 
     public bool heal;
     private bool attack1, attack2charge, attack2release, attack3, attack4, attack5,timestart1, timestart3, timestart4, timestart5;
@@ -54,10 +54,20 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-
-
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////HEALTH BAR
+        if (HP > 0)
+        {
+            HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3((HP / 15), 1, 1);
+            HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(15f + HP / 1.5f, 10);
+        }
+        else
+        {
+            HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3(0, 1, 1);
+            HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(0, 10);
+            SceneManager.LoadScene(RespawnScene.name);
+        }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK
-        
+
         if ((CD == true) && (GetComponentInParent<PlayerMove>().stamina >= 10f))
         {
             if ((Input.GetAxis("RT")) == 1f) { attack1 = true; }
@@ -241,17 +251,7 @@ public class PlayerCombat : MonoBehaviour
 
 
 
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////HEALTH BAR
-        if (HP > 0)
-        {
-            HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3((HP / 15), 1, 1);
-            HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(15f + HP/1.5f, 10);
-        } else
-        {
-            HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3(0, 1, 1);
-            HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(0, 10);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////DAMAGE TAKEN
 
 

@@ -6407,6 +6407,12 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3260582128203198096, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
+      propertyPath: RespawnScene
+      value: 
+      objectReference: {fileID: 102900000, guid: f0465fa4ea004aa48b57156229d49388,
+        type: 3}
     - target: {fileID: 4818841141353686597, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
       propertyPath: m_Name
