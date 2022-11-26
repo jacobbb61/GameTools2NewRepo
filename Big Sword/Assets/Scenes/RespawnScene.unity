@@ -11950,7 +11950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 1828736889}
   inside: 0
-  BossScene: {fileID: 102900000, guid: f0465fa4ea004aa48b57156229d49388, type: 3}
+  BossScene: {fileID: 102900000, guid: 62b50369e63990540a306d60497889b2, type: 3}
 --- !u!65 &1472187867
 BoxCollider:
   m_ObjectHideFlags: 0

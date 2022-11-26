@@ -7,7 +7,7 @@ public class KnightBossCombat : MonoBehaviour
     GameObject player;
     Animator anim;
 
-    public GameObject HPBar;
+    public GameObject HPBar, ReturnObj;
 
     private NavMeshAgent navMeshAgent;
 
@@ -75,12 +75,13 @@ public class KnightBossCombat : MonoBehaviour
     void Killed()
     {
         HPBar.SetActive(false);
-        GetComponent<GuardMove>().enabled = false;
+        GetComponent<KnightBossMove>().enabled = false;
         navMeshAgent.enabled = false;
         GetComponentInChildren<EnemyDetect>().enabled = false;
         anim.SetTrigger("Dead");
         HP = 2;
-        Destroy(this.gameObject, 10f);
+        Destroy(this.gameObject, 3f);
+        ReturnObj.SetActive(true);
     }
     private void OnTriggerEnter(Collider other)
     {
