@@ -19,7 +19,7 @@ public class KnightBossCombat : MonoBehaviour
 
     public bool dead = false;
     public bool attack3 = false;
-
+    public bool PhaseChange = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +31,7 @@ public class KnightBossCombat : MonoBehaviour
     void Update()
     {
         if (HP <= 0) { dead = true; }
+        if (HP <= 20 && PhaseChange == false) { Phase(); PhaseChange = true; }
         if (dead == true && AtkT < 20f) { Killed(); AtkT = 200f; }
         HPBar.transform.localScale = new Vector3(0.5f, 0.1f, HP);
 
@@ -46,7 +47,8 @@ public class KnightBossCombat : MonoBehaviour
 
         if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(); }
 
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range))) { Attack1(); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range))) { Attack1(); }
+        if ((PhaseChange==true)&&(AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range))) { Attack1P2(); }
 
     }
 
@@ -54,7 +56,15 @@ public class KnightBossCombat : MonoBehaviour
     public void Attack1()
     {
         AtkT = 4f;
-        navMeshAgent.speed = 3f; navMeshAgent.angularSpeed = 360f;
+        navMeshAgent.speed = 4f; navMeshAgent.angularSpeed = 360f;
+        anim.SetTrigger("Attack1");
+        attack3 = false;
+    }
+
+    public void Attack1P2()
+    {
+        AtkT = 1.5f;
+        navMeshAgent.speed = 6f; navMeshAgent.angularSpeed = 360f;
         anim.SetTrigger("Attack1");
         attack3 = false;
     }
@@ -73,7 +83,13 @@ public class KnightBossCombat : MonoBehaviour
         navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f;
         anim.SetTrigger("Attack3");
     }
-
+    public void Phase()
+    {
+        navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f;
+        AtkT = 3.5f;
+        anim.SetBool("Phase2", true);
+        anim.SetTrigger("PhaseChange");
+    }
     void Killed()
     {
         HPBar.SetActive(false);

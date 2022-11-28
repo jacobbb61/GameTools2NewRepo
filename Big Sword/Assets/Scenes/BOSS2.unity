@@ -6184,7 +6184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577247858}
   m_LocalRotation: {x: -0.14644654, y: 0.8535535, z: -0.3535534, w: -0.35355324}
-  m_LocalPosition: {x: -64.31002, y: 95.179344, z: 37.46003}
+  m_LocalPosition: {x: -53.99003, y: 95.179344, z: 35.470024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6682,7 +6682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760202971}
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -120.21, y: 24.99, z: -8.7765}
+  m_LocalPosition: {x: -121.61, y: 24.99, z: -2.79}
   m_LocalScale: {x: 3.3644836, y: 3.3644836, z: 3.3644836}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6705,7 +6705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HPBar: {fileID: 1439422581069644513}
   ReturnObj: {fileID: 257533160}
-  HP: 21
+  HP: 40
   Atk1Range: 8
   Atk2Range: 13
   Atk3Range: 20
@@ -6758,7 +6758,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789117410}
   m_LocalRotation: {x: -0.14644654, y: 0.8535535, z: -0.3535534, w: -0.35355324}
-  m_LocalPosition: {x: -64.31002, y: 95.179344, z: 37.46003}
+  m_LocalPosition: {x: -53.99003, y: 95.179344, z: 35.470024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19611,7 +19611,7 @@ PrefabInstance:
     - target: {fileID: 4818841141353686598, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -114.31
+      value: -103.99
       objectReference: {fileID: 0}
     - target: {fileID: 4818841141353686598, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
@@ -19621,7 +19621,7 @@ PrefabInstance:
     - target: {fileID: 4818841141353686598, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.54
+      value: -14.53
       objectReference: {fileID: 0}
     - target: {fileID: 4818841141353686598, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
