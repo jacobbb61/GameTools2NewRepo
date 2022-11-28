@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/RespawnScene.unity
+    guid: f0465fa4ea004aa48b57156229d49388
+  - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: cb187608d9efa1848a50332b1fdeb03e
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BOSS1.unity
     guid: 3f5bc85ac9c3e08458196d165b4d5a65
-  - enabled: 1
-    path: Assets/Scenes/RespawnScene.unity
-    guid: f0465fa4ea004aa48b57156229d49388
   - enabled: 1
     path: Assets/Scenes/BOSS2.unity
     guid: 62b50369e63990540a306d60497889b2
