@@ -13,7 +13,7 @@ public class KnightBossCombat : MonoBehaviour
 
     public int HP;
 
-    public float Atk1Range, Atk2Range;
+    public float Atk1Range, Atk2Range, Atk3Range;
     public float AtkT, Atk3WaitT;
 
 
@@ -36,39 +36,41 @@ public class KnightBossCombat : MonoBehaviour
 
         if (AtkT > 0f) { AtkT -= Time.deltaTime;  } else { navMeshAgent.speed = 3f; navMeshAgent.angularSpeed = 360f; attack3 = false; }
         if (AtkT > 1f && AtkT<1.5f && attack3==true) { navMeshAgent.angularSpeed = 6000f; } 
-        if (AtkT > 0.9f && AtkT<1.2f && attack3==true) { navMeshAgent.speed = 500f; navMeshAgent.stoppingDistance = 5f; } else { navMeshAgent.speed = 0f; navMeshAgent.stoppingDistance = 2.5f; } 
+        if (AtkT > 0.9f && AtkT<1.2f && attack3==true) { navMeshAgent.speed = 500f; navMeshAgent.stoppingDistance = 5f; } 
+        if (AtkT < 0.9f && attack3==true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; navMeshAgent.stoppingDistance = 1f; }
 
 
         if (Vector3.Distance(transform.position, player.transform.position) < Atk1Range) { Atk3WaitT += Time.deltaTime; }
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk2Range)) { Attack3(); }
 
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack1(); }
+        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(); }
 
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range))) { Attack2(); }
+        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(); }
 
+        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range))) { Attack1(); }
 
     }
 
 
     public void Attack1()
     {
-        AtkT = 1f;
-        navMeshAgent.speed = 0.5f; navMeshAgent.angularSpeed = 5000f;
+        AtkT = 4f;
+        navMeshAgent.speed = 3f; navMeshAgent.angularSpeed = 360f;
         anim.SetTrigger("Attack1");
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack3(); }
+        attack3 = false;
     }
     public void Attack2()
     {
-        AtkT = 2f;
-        navMeshAgent.speed = 0.5f; navMeshAgent.angularSpeed = 1000f;
+        AtkT = 1.5f;
+        navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 100f;
         anim.SetTrigger("Attack2");
+        attack3 = false;
     }
     public void Attack3()
     {
         attack3 = true;
         AtkT = 3f;
         Atk3WaitT = 0f;
-        navMeshAgent.speed = 0.5f; navMeshAgent.angularSpeed = 1000f;
+        navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f;
         anim.SetTrigger("Attack3");
     }
 

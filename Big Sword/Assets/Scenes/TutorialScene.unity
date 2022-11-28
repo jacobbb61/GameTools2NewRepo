@@ -14477,6 +14477,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 102900000, guid: cb187608d9efa1848a50332b1fdeb03e,
         type: 3}
+    - target: {fileID: 4535825597226216188, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 4818841141353686597, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
       propertyPath: m_Name
@@ -14610,6 +14615,16 @@ PrefabInstance:
     - target: {fileID: 5701142413858864663, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942207607731316396, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8615483863794371376, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -15049,7 +15064,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 250
+    OrthographicSize: 176.1299
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

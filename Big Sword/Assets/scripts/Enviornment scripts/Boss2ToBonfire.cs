@@ -15,7 +15,7 @@ public class Boss2ToBonfire : MonoBehaviour
         {
             T += Time.deltaTime;
         }
-        if (T >= 10f) {  SceneManager.LoadScene("SecondScene"); }
+        if (T >= 10f) {  SceneManager.LoadScene("RespawnScene"); }
     }
 
     private void OnTriggerEnter(Collider other)
