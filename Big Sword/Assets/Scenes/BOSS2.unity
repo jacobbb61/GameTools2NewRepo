@@ -19651,6 +19651,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260582128203198096, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
+      propertyPath: FlaskNum
+      value: 
+      objectReference: {fileID: 1134991819118674409}
+    - target: {fileID: 3260582128203198096, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
       propertyPath: YouDiedAnim
       value: 
       objectReference: {fileID: 484931770}
@@ -20874,6 +20879,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1134991819118674407}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1134991819118674409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1062370162253010299, guid: 604dba6cf4a4f4843a7283f97b7857bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1134991819118674407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1171443489140063138
 GameObject:
   m_ObjectHideFlags: 0

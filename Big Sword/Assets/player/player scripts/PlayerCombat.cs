@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
  
     public Transform player; 
     GameObject HPObj;
-   // public TextMeshProUGUI FlaskNum;
+    public TextMeshProUGUI FlaskNum;
 
 
 
@@ -250,11 +250,9 @@ public class PlayerCombat : MonoBehaviour
             healT += Time.deltaTime;
             GetComponentInParent<PlayerMove>().canwalk = false; GetComponentInParent<PlayerMove>().canSpDoOB = false;
         }
-        if ((healT >= 0.75)&&(heal==true)) { HP += 40f; heal = false;flasks = flasks - 1; GetComponentInParent<PlayerMove>().canwalk = true; GetComponentInParent<PlayerMove>().canSpDoOB = true; }
-      //  FlaskNum.text = flasks.ToString();
+        if ((healT >= 0.75)&&(heal==true)) { HP = MaxHP; heal = false;flasks = flasks - 1; GetComponentInParent<PlayerMove>().canwalk = true; GetComponentInParent<PlayerMove>().canSpDoOB = true; }
 
-
-
+        FlaskNum.text = flasks.ToString();
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////DAMAGE TAKEN
 

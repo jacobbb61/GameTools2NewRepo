@@ -226,7 +226,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43944
+  m_Name: pb_Mesh34956
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2143,7 +2143,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44038
+  m_Name: pb_Mesh35050
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2492,7 +2492,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43900
+  m_Name: pb_Mesh34912
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3951,6 +3951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260582128203198096, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
+      propertyPath: FlaskNum
+      value: 
+      objectReference: {fileID: 1134991819118674410}
+    - target: {fileID: 3260582128203198096, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
       propertyPath: YouDiedAnim
       value: 
       objectReference: {fileID: 1134991819118674409}
@@ -4241,7 +4246,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44208
+  m_Name: pb_Mesh35230
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4460,7 +4465,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 250
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -10016,12 +10021,17 @@ PrefabInstance:
     - target: {fileID: 2577839985725380722, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3914114211482708112, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5794507260423146605, guid: 604dba6cf4a4f4843a7283f97b7857bd,
+        type: 3}
+      propertyPath: m_Name
+      value: FlaskTMP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
@@ -10046,6 +10056,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 1134991819118674407}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1134991819118674410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1062370162253010299, guid: 604dba6cf4a4f4843a7283f97b7857bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1134991819118674407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1184427841449545925
 Transform:
   m_ObjectHideFlags: 0
@@ -16720,9 +16742,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5133784324246563456}
   - component: {fileID: 5133784324246563457}
-  - component: {fileID: 5133784324246563462}
   - component: {fileID: 5133784324246563464}
   - component: {fileID: 5133784324246563463}
+  - component: {fileID: 5133784324246563465}
   m_Layer: 0
   m_Name: KnightBoss
   m_TagString: Untagged
@@ -16730,20 +16752,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &5133784324246563462
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5133784324246563459}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1.9
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5133784324246563463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16758,10 +16766,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HPBar: {fileID: 1439422581069644513}
   ReturnObj: {fileID: 257533160}
-  HP: 21
+  HP: 40
   Atk1Range: 4
-  Atk2Range: 10
-  Atk3Range: 20
+  Atk2Range: 8
+  Atk3Range: 12
   AtkT: 0
   Atk4WaitT: 0
   dead: 0
@@ -16784,6 +16792,20 @@ MonoBehaviour:
   move: 0
   speed: 2
   detect: 40
+--- !u!136 &5133784324246563465
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133784324246563459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5133784325003977912
 GameObject:
   m_ObjectHideFlags: 0

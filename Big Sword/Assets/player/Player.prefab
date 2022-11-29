@@ -3441,6 +3441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RespawnScene: {fileID: 0}
+  YouDiedAnim: {fileID: 0}
   player: {fileID: 4818841141353686598}
   MaxHP: 100
   StrMod: 0
@@ -3449,7 +3450,7 @@ MonoBehaviour:
   ATK2DMG: 0
   HP: 100
   flasks: 0
-  MaxFlask: 100
+  MaxFlask: 5
   heal: 0
 --- !u!1 &8395530574042379115
 GameObject:
