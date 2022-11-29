@@ -14163,6 +14163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260582128203198096, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
+      propertyPath: YouDiedAnim
+      value: 
+      objectReference: {fileID: 1134991819118674408}
+    - target: {fileID: 3260582128203198096, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
       propertyPath: RespawnScene
       value: 
       objectReference: {fileID: 102900000, guid: f0465fa4ea004aa48b57156229d49388,
@@ -15688,6 +15693,12 @@ PrefabInstance:
       insertIndex: 5
       addedObject: {fileID: 1911825968}
   m_SourcePrefab: {fileID: 100100000, guid: 604dba6cf4a4f4843a7283f97b7857bd, type: 3}
+--- !u!95 &1134991819118674408 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3727327944489583642, guid: 604dba6cf4a4f4843a7283f97b7857bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1134991819118674407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1184427841449545925
 Transform:
   m_ObjectHideFlags: 0

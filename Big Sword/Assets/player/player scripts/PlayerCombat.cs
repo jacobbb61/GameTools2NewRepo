@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class PlayerCombat : MonoBehaviour
 {
     public Object RespawnScene;
-
+    public Animator YouDiedAnim;
     Animator anim;
-    // public Collider BossSword;
-    public Transform player; //, boss;
-    GameObject HPObj;// bonfire;
+ 
+    public Transform player; 
+    GameObject HPObj;
    // public TextMeshProUGUI FlaskNum;
 
 
@@ -23,9 +23,10 @@ public class PlayerCombat : MonoBehaviour
     public int flasks;
     public int MaxFlask;
 
-    private float EnemyDMG;//SlugDMG,
+    private float EnemyDMG, EnemyDMG2;//SlugDMG,
 
-
+    private float _youDiedTime = 0f;
+    private bool _youDied = false;
 
     public bool heal;
     private bool attack1, attack2charge, attack2release, attack3, attack4, attack5,timestart1, timestart3, timestart4, timestart5;
@@ -47,7 +48,8 @@ public class PlayerCombat : MonoBehaviour
         ResMod = 1f;
 
      //   SlugDMG = 100f;
-        EnemyDMG = 8f;
+        EnemyDMG = 6f;
+        EnemyDMG2 = 12f;
         flasks = MaxFlask;
     }
 
@@ -64,8 +66,10 @@ public class PlayerCombat : MonoBehaviour
         {
             HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3(0, 1, 1);
             HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(0, 10);
-            SceneManager.LoadScene(RespawnScene.name);
+            _youDied = true;
         }
+        if (_youDied) { _youDiedTime += Time.deltaTime; YouDiedAnim.SetTrigger("Active"); player.GetComponent<PlayerMove>().enabled = false; CD = false; }
+        if (_youDiedTime >= 4.25f) { SceneManager.LoadScene(RespawnScene.name); }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK
 
         if ((CD == true) && (GetComponentInParent<PlayerMove>().stamina >= 10f))
@@ -261,7 +265,6 @@ public class PlayerCombat : MonoBehaviour
 
 
 
-
     private void OnTriggerEnter(Collider other)
     {
 
@@ -271,7 +274,11 @@ public class PlayerCombat : MonoBehaviour
                    {
                        HP -= EnemyDMG ;
                    }
-               }   
+            if (other.CompareTag("EnemyAttack2"))
+            {
+                HP -= EnemyDMG2;
+            }
+        }   
         if (other.CompareTag("instant kill"))
                {
                    HP -= 1000;
