@@ -45,7 +45,7 @@ public class KnightBossCombat : MonoBehaviour
 
         if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(); }
 
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT>=8f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack4(); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT>=5f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack4(); }
 
         if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(); }
 
@@ -73,8 +73,8 @@ public class KnightBossCombat : MonoBehaviour
     }
     public void Attack2()
     {
-        AtkT = 1.5f;
-        navMeshAgent.speed = 0.1f; navMeshAgent.angularSpeed = 200f;
+        AtkT = 2f;
+        navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 400f;
         anim.SetTrigger("Attack2");
         attack3 = false;
     }
