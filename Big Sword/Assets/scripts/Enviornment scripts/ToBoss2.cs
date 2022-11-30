@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class ToBoss1 : MonoBehaviour
+public class ToBoss2 : MonoBehaviour
 {
     public GameObject UI;
     public bool inside;
@@ -10,9 +10,9 @@ public class ToBoss1 : MonoBehaviour
 
     private void Update()
     {
-        if (inside==true && Input.GetKeyDown(KeyCode.JoystickButton3))
+        if (inside == true && Input.GetKeyDown(KeyCode.JoystickButton3))
         {
-            SceneManager.LoadScene("Boss1");
+            SceneManager.LoadScene("Boss2");
         }
     }
 
@@ -21,7 +21,7 @@ public class ToBoss1 : MonoBehaviour
     {
         UI.SetActive(true);
         inside = true;
-    }    
+    }
     public void OnTriggerExit(Collider other)
     {
         UI.SetActive(false);

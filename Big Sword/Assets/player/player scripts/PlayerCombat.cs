@@ -69,7 +69,7 @@ public class PlayerCombat : MonoBehaviour
             _youDied = true;
         }
         if (_youDied) { _youDiedTime += Time.deltaTime; YouDiedAnim.SetTrigger("Active"); player.GetComponent<PlayerMove>().enabled = false; CD = false; }
-        if (_youDiedTime >= 4.25f) { SceneManager.LoadScene(RespawnScene.name); }
+        if (_youDiedTime >= 4.25f) { SceneManager.LoadScene("RespawnScene"); }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK
 
         if ((CD == true) && (GetComponentInParent<PlayerMove>().stamina >= 10f))

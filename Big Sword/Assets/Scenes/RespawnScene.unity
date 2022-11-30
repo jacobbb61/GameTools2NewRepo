@@ -3903,7 +3903,6 @@ GameObject:
   m_Component:
   - component: {fileID: 463707657}
   - component: {fileID: 463707656}
-  - component: {fileID: 463707655}
   - component: {fileID: 463707654}
   m_Layer: 0
   m_Name: Plane (3)
@@ -4004,14 +4003,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 463707656}
   m_maskType: 0
---- !u!222 &463707655
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463707653}
-  m_CullTransparentMesh: 1
 --- !u!23 &463707656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4416,7 +4407,7 @@ GameObject:
   - component: {fileID: 547312244}
   - component: {fileID: 547312243}
   - component: {fileID: 547312242}
-  - component: {fileID: 547312241}
+  - component: {fileID: 547312245}
   m_Layer: 0
   m_Name: FinalBoss
   m_TagString: Untagged
@@ -4440,21 +4431,6 @@ Transform:
   m_Father: {fileID: 866279344}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -449.999, z: 0}
---- !u!114 &547312241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547312239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4e58e1c6dcff348baadd8c0d57dc5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI: {fileID: 1911825965}
-  inside: 0
-  BossScene: {fileID: 102900000, guid: 09e51652d2223144b92d2e7ad3755314, type: 3}
 --- !u!65 &547312242
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4518,6 +4494,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547312239}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &547312245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547312239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511a0f92b3f9db447a7d01dfced4d9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1911825965}
+  inside: 0
 --- !u!1 &577247858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4837,7 +4827,6 @@ GameObject:
   m_Component:
   - component: {fileID: 720957370}
   - component: {fileID: 720957369}
-  - component: {fileID: 720957368}
   - component: {fileID: 720957367}
   m_Layer: 0
   m_Name: Plane
@@ -4938,14 +4927,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 720957369}
   m_maskType: 0
---- !u!222 &720957368
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720957366}
-  m_CullTransparentMesh: 1
 --- !u!23 &720957369
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5024,7 +5005,6 @@ GameObject:
   m_Component:
   - component: {fileID: 777614025}
   - component: {fileID: 777614024}
-  - component: {fileID: 777614023}
   - component: {fileID: 777614022}
   m_Layer: 0
   m_Name: Plane (1)
@@ -5125,14 +5105,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 777614024}
   m_maskType: 0
---- !u!222 &777614023
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777614021}
-  m_CullTransparentMesh: 1
 --- !u!23 &777614024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12456,7 +12428,7 @@ GameObject:
   - component: {fileID: 1472187869}
   - component: {fileID: 1472187868}
   - component: {fileID: 1472187867}
-  - component: {fileID: 1472187866}
+  - component: {fileID: 1472187870}
   m_Layer: 0
   m_Name: Boss2Door
   m_TagString: Untagged
@@ -12480,21 +12452,6 @@ Transform:
   m_Father: {fileID: 866279344}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &1472187866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472187864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4e58e1c6dcff348baadd8c0d57dc5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI: {fileID: 1828736889}
-  inside: 0
-  BossScene: {fileID: 102900000, guid: 62b50369e63990540a306d60497889b2, type: 3}
 --- !u!65 &1472187867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12558,6 +12515,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472187864}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1472187870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472187864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1637a2796cc3234fbfa92697a741290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1828736889}
+  inside: 0
 --- !u!1 &1483090292
 GameObject:
   m_ObjectHideFlags: 0
@@ -12568,7 +12539,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1483090296}
   - component: {fileID: 1483090295}
-  - component: {fileID: 1483090294}
   - component: {fileID: 1483090293}
   m_Layer: 0
   m_Name: Plane (2)
@@ -12671,14 +12641,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1483090295}
   m_maskType: 0
---- !u!222 &1483090294
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483090292}
-  m_CullTransparentMesh: 1
 --- !u!23 &1483090295
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13180,7 +13142,7 @@ GameObject:
   - component: {fileID: 1740892442}
   - component: {fileID: 1740892441}
   - component: {fileID: 1740892440}
-  - component: {fileID: 1740892439}
+  - component: {fileID: 1740892443}
   m_Layer: 0
   m_Name: Tutorial
   m_TagString: Untagged
@@ -13204,21 +13166,6 @@ Transform:
   m_Father: {fileID: 866279344}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -269.999, z: 0}
---- !u!114 &1740892439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740892437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4e58e1c6dcff348baadd8c0d57dc5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UI: {fileID: 1855337530}
-  inside: 0
-  BossScene: {fileID: 102900000, guid: cb187608d9efa1848a50332b1fdeb03e, type: 3}
 --- !u!65 &1740892440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13282,6 +13229,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740892437}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1740892443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740892437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a5f6caa2de00a4d8216a26e98af5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 1855337530}
+  inside: 0
 --- !u!43 &1747724037
 Mesh:
   m_ObjectHideFlags: 0
@@ -14676,7 +14637,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI: {fileID: 691100636}
   inside: 0
-  BossScene: {fileID: 102900000, guid: 3f5bc85ac9c3e08458196d165b4d5a65, type: 3}
 --- !u!65 &1880759281
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16052,7 +16012,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 250
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

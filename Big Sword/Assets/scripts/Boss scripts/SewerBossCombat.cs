@@ -63,7 +63,7 @@ public class SewerBossCombat : MonoBehaviour
     public void Attack1()
     {
         AtkT = 4f;
-        navMeshAgent.speed = 3f; navMeshAgent.angularSpeed = 360f;
+        navMeshAgent.speed = 10f; navMeshAgent.angularSpeed = 360f;
         anim.SetTrigger("Attack1");
         attack3 = false;
     }
