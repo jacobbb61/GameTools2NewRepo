@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3ae4a9611e53f0d4cbdd498039838e64, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &43775652
 GameObject:
   m_ObjectHideFlags: 0
@@ -8910,7 +8910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070328044}
   m_LocalRotation: {x: -0, y: -0.499999, z: -0, w: 0.866026}
-  m_LocalPosition: {x: -0.25162, y: -2.480499, z: 1.4183}
+  m_LocalPosition: {x: 0.27, y: -2.480499, z: -0.93}
   m_LocalScale: {x: 0.010660883, y: 0.010660884, z: 0.010660883}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9341,6 +9341,54 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1143209248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1143209250}
+  - component: {fileID: 1143209249}
+  m_Layer: 0
+  m_Name: GameMemory
+  m_TagString: Memory
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1143209249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143209248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e51170888f2534da1c256ae3959b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss1Lever: 0
+  Boss1Killed: 0
+  Boss2Lever: 0
+  Boss2Killed: 0
+--- !u!4 &1143209250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143209248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -69.392296, y: 69.84091, z: 71.711525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1186120738
 GameObject:
   m_ObjectHideFlags: 0
@@ -11390,8 +11438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c85671d0ada0d4685ec4e79dcf0218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossHPBar: {fileID: 1793261023}
-  player: {fileID: 0}
+  BossCombat: {fileID: 0}
+  Colider: {fileID: 0}
+  HPbar: {fileID: 0}
+  BossName: {fileID: 0}
 --- !u!4 &1434484123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1782762110137189467, guid: 46b673796568fdb42aa3ed0e3df63531,
@@ -13452,12 +13502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1793261023 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1439422582068971704, guid: fb4efd925b8494444a194cbbe306499f,
-    type: 3}
-  m_PrefabInstance: {fileID: 2004507740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1793261024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1439422582068971703, guid: fb4efd925b8494444a194cbbe306499f,

@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossArenaManager : MonoBehaviour
+public class Boss2ArenaManager : MonoBehaviour
 {
-
-    public KnightBossCombat BossCombat;
+    public SewerBossCombat BossCombat;
     public GameObject Colider;
     public GameObject HPbar;
     public GameObject BossName;
-    
     private void OnTriggerEnter(Collider other)
     {
-        BossCombat.enabled=true;
-        Colider.SetActive(true);
+        BossCombat.enabled = true;
+        Colider.SetActive(false);
         HPbar.SetActive(true);
         BossName.SetActive(true);
     }
