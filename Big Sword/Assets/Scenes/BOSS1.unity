@@ -1296,7 +1296,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-526176
+  m_Name: pb_Mesh-4658198
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2000,7 +2000,7 @@ PrefabInstance:
         type: 3}
       propertyPath: HPBar
       value: 
-      objectReference: {fileID: 511887242}
+      objectReference: {fileID: 1839601232}
     - target: {fileID: 2150853440961857096, guid: 46b673796568fdb42aa3ed0e3df63531,
         type: 3}
       propertyPath: Atk1Range
@@ -2136,6 +2136,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 685870961}
+    - target: {fileID: 6639649368485149108, guid: 46b673796568fdb42aa3ed0e3df63531,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.29335362
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639649368485149108, guid: 46b673796568fdb42aa3ed0e3df63531,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639649368485149108, guid: 46b673796568fdb42aa3ed0e3df63531,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.41
+      objectReference: {fileID: 0}
     - target: {fileID: 6639649368485149109, guid: 46b673796568fdb42aa3ed0e3df63531,
         type: 3}
       propertyPath: m_Mesh
@@ -2144,7 +2159,7 @@ PrefabInstance:
     - target: {fileID: 6639649368485149109, guid: 46b673796568fdb42aa3ed0e3df63531,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 617
+      value: 620
       objectReference: {fileID: 0}
     - target: {fileID: 6639649368615874484, guid: 46b673796568fdb42aa3ed0e3df63531,
         type: 3}
@@ -2155,7 +2170,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
-      objectReference: {fileID: 577247860}
+      objectReference: {fileID: 789117411}
     - target: {fileID: 6639649368615874491, guid: 46b673796568fdb42aa3ed0e3df63531,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -2218,12 +2233,6 @@ PrefabInstance:
 --- !u!4 &511887241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1782762110137189467, guid: 46b673796568fdb42aa3ed0e3df63531,
-    type: 3}
-  m_PrefabInstance: {fileID: 511887240}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &511887242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6639649368615874484, guid: 46b673796568fdb42aa3ed0e3df63531,
     type: 3}
   m_PrefabInstance: {fileID: 511887240}
   m_PrefabAsset: {fileID: 0}
@@ -2950,7 +2959,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-528280
+  m_Name: pb_Mesh-4659900
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6018,7 +6027,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-525516
+  m_Name: pb_Mesh-4659562
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6608,6 +6617,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1839601232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6639649368485149105, guid: 46b673796568fdb42aa3ed0e3df63531,
+    type: 3}
+  m_PrefabInstance: {fileID: 511887240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1871939473
 GameObject:
   m_ObjectHideFlags: 0
@@ -6846,7 +6861,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-526592
+  m_Name: pb_Mesh-4658858
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7583,7 +7598,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-525846
+  m_Name: pb_Mesh-4658528
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

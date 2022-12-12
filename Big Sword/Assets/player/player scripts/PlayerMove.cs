@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     public float MaxStamina;
     public float DexMod;
     public float Speed; // players current speed
-    public float PLspeed, SRspeed; // player speed(walking), Sprint speed, Crouch speed
+    public float PLspeed, SRspeed; // player speed(walking), Sprint speed
     public float RP; //roll power/direction/direction sides
     public float stamina;
 
@@ -78,12 +78,17 @@ public class PlayerMove : MonoBehaviour
                 moving = true;idle = false; 
             } else { moving = false;  idle = true;  }
 
-   
+        if ((Input.GetKey(KeyCode.JoystickButton4) && (amIGrounded == true)&&(canSpDoOB==true)&& (stamina >= 5f))) { sprint = true; }           // sprint
+        if ((Input.GetKeyUp(KeyCode.JoystickButton4)) && (canSpDoOB==true)) { sprint = false; }
+        if (sprint == true) { Speed = SRspeed; SPreset = false;  STdrain = true;}
+        if (sprint == false) { SPreset = true;  STdrain = false;}
+        if (stamina<=1) { sprint = false; }
+        if  (moving==false) { sprint = false; }
 
         if ((Input.GetKey(KeyCode.JoystickButton1)) && (amIGrounded == true) && (canSpDoOB==true) && (stamina >= 5f)) { roll = true; canSpDoOB = false; }                          // roll
         if (roll == true){ rollstart = true; rollTime = 0f; canwalk = false; stamina -= 15; dodgedir = moveDir; StaminaHolt = true; }
         if (rollstart == true) { roll = false; rollTime += Time.deltaTime; }
-        if ((rollTime > 0.1f) && (rollTime < 1f))
+        if ((rollTime > 0.1f) && (rollTime < 0.6f))
         { 
             controller.SimpleMove(dodgedir * RP);
             float dodgeAngle = Mathf.Atan2(dodgedir.x, dodgedir.z) * Mathf.Rad2Deg;
@@ -91,16 +96,11 @@ public class PlayerMove : MonoBehaviour
         }
         if ((rollTime < 0.5f)&&(rollTime>0f)) { anim.SetBool("Roll", true); anim.SetBool("Sprint", false); anim.SetBool("Walk", false); anim.SetBool("Idle", false); }
         if (rollTime > 0.5f) { anim.SetBool("Roll", false);}
-        if (rollTime>= 0.8f) { rollstart = false; roll = false;  rollTime = 0f; canwalk = true; StaminaHolt = false; canSpDoOB = true; }      
+        if (rollTime>= 0.6f) { rollstart = false; roll = false;  rollTime = 0f; canwalk = true; StaminaHolt = false; canSpDoOB = true; }      
         
         if (SPreset == true) { Speed = PLspeed; }                                                  // player speed reset
 
-        if ((Input.GetKeyDown(KeyCode.JoystickButton8) && (moving==true)) && (amIGrounded == true)&&(canSpDoOB==true)&& (stamina >= 5f)) { sprint = true; }           // sprint
-        if ((Input.GetKeyUp(KeyCode.JoystickButton8)) && (canSpDoOB==true)) { sprint = false; }
-        if (sprint == true) { Speed = SRspeed; SPreset = false;  STdrain = true;}
-        if (sprint == false) { SPreset = true;  STdrain = false;}
-        if (stamina<=1) { sprint = false; }
-        if  (moving==false) { sprint = false; }
+ 
 
                                                
         if ((moving == true) && (sprint==false)) { anim.SetBool("Walk", true); } else { anim.SetBool("Walk", false); }                                // anim triggers

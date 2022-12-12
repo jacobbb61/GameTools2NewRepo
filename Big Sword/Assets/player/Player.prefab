@@ -2154,9 +2154,9 @@ MonoBehaviour:
   MaxStamina: 0
   DexMod: 0
   Speed: 0
-  PLspeed: 2.25
+  PLspeed: 3
   SRspeed: 8
-  RP: 8
+  RP: 12.5
   stamina: 99
   sprint: 0
   amIGrounded: 0
@@ -3443,14 +3443,13 @@ MonoBehaviour:
   RespawnScene: {fileID: 0}
   YouDiedAnim: {fileID: 0}
   player: {fileID: 4818841141353686598}
+  FlaskNum: {fileID: 0}
   MaxHP: 100
-  StrMod: 0
-  ResMod: 0
   ATK1DMG: 0
   ATK2DMG: 0
   HP: 100
   flasks: 0
-  MaxFlask: 5
+  MaxFlask: 3
   heal: 0
 --- !u!1 &8395530574042379115
 GameObject:

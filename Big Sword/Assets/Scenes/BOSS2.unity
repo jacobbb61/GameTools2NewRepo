@@ -711,7 +711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257533160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.22168, y: -8.732168, z: -7.24835}
+  m_LocalPosition: {x: -44.22168, y: -10.7, z: -7.24835}
   m_LocalScale: {x: 9.0256, y: 0.7096288, z: 9.0256}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21409,7 +21409,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh78574
+  m_Name: pb_Mesh101282
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -22071,7 +22071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1896232116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22121,8 +22121,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23664,7 +23664,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1134991818323686228, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}
-      insertIndex: 0
+      insertIndex: 1
       addedObject: {fileID: 1896232116}
     - targetCorrespondingSourceObject: {fileID: 1134991818323686228, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}

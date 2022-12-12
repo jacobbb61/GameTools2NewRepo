@@ -16,7 +16,7 @@ public class PlayerCombat : MonoBehaviour
 
 
 
-    public float MaxHP, StrMod, ResMod, ATK1DMG, ATK2DMG;
+    public float MaxHP, ATK1DMG, ATK2DMG;
     public float HP;
     private float  atk1Time, atk2Time, atk3Time, atk4Time, atk5Time, healT;
 
@@ -43,11 +43,8 @@ public class PlayerCombat : MonoBehaviour
 
 
         CD = true;
-        
-        StrMod = 1f;
-        ResMod = 1f;
 
-     //   SlugDMG = 100f;
+
         EnemyDMG = 6f;
         EnemyDMG2 = 12f;
         flasks = MaxFlask;
@@ -84,14 +81,14 @@ public class PlayerCombat : MonoBehaviour
             GetComponentInParent<PlayerMove>().canwalk= false;  
             GetComponentInParent<PlayerMove>().canSpDoOB = false; }
             if (timestart1 == true) { atk1Time += Time.deltaTime;  attack1 = false; GetComponentInParent<PlayerMove>().Speed = 0f; }
-            if ((atk1Time >= 1.1f)&&(atk1Time<=2f)) { anim.SetBool("HeavyAttack", false); }
-            if (atk1Time > 1.5f) {GetComponentInParent<PlayerMove>().canSpDoOB = true;}
-            if ((atk1Time > 1.5f) && (Input.GetKey(KeyCode.JoystickButton1))) {
+            if ((atk1Time >= 0.8f)&&(atk1Time<=1.2f)) { anim.SetBool("HeavyAttack", false); }
+            if (atk1Time > 0.8f) {GetComponentInParent<PlayerMove>().canSpDoOB = true;}
+            if ((atk1Time > 0.8f) && (Input.GetKey(KeyCode.JoystickButton1))) {
             timestart1 = false; CD = true; atk1Time = 0f;
             GetComponentInParent<PlayerMove>().canwalk = true;
             GetComponentInParent<PlayerMove>().StaminaHolt = false;
             }
-            if (atk1Time > 2f) { timestart1 = false;  CD = true;  atk1Time = 0f;
+            if (atk1Time > 1.25f) { timestart1 = false;  CD = true;  atk1Time = 0f;
             GetComponentInParent<PlayerMove>().canwalk= true;    
             GetComponentInParent<PlayerMove>().StaminaHolt = false;
             attack1 = false;
@@ -185,7 +182,7 @@ public class PlayerCombat : MonoBehaviour
         
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK 2
 
-        if ((atk1Time > 1f) && (atk1Time < 1.5f) && (GetComponentInParent<PlayerMove>().stamina >= 5f))
+        if ((atk1Time > 0.8f) && (atk1Time < 1.1f) && (GetComponentInParent<PlayerMove>().stamina >= 5f))
         {
             if ((Input.GetAxis("RT")) == 1f) { attack5 = true; atk5Time = 0f; timestart1 = false; atk1Time = 0f; attack1 = false; }
         }
@@ -212,7 +209,7 @@ public class PlayerCombat : MonoBehaviour
             anim.SetBool("HeavyAttack", false);
             anim.SetBool("LightAttack2", false);
         }
-        if (atk5Time > 1.5f)
+        if (atk5Time > 1.1f)
         {
             anim.SetBool("HeavyAttack2", false);
             timestart5 = false; 

@@ -92,7 +92,7 @@ public class SewerBossCombat : MonoBehaviour
     void Killed()
     {
         HPBar.SetActive(false);
-        GetComponent<KnightBossMove>().enabled = false;
+        GetComponent<SewerBossMove>().enabled = false;
         navMeshAgent.enabled = false;
         GetComponentInChildren<EnemyDetect>().enabled = false;
         anim.SetTrigger("Dead");
