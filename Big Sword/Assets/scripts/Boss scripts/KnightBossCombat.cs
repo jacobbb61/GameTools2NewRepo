@@ -96,6 +96,8 @@ public class KnightBossCombat : MonoBehaviour
     }
     void Killed()
     {
+        GameObject Mem = GameObject.FindGameObjectWithTag("Memory");
+        Mem.GetComponent<GameMem>().Boss1Killed = true;
         HPBar.SetActive(false);
         GetComponent<KnightBossMove>().enabled = false;
         navMeshAgent.enabled = false;

@@ -61,7 +61,7 @@ public class PlayerCombat : MonoBehaviour
         }
         else
         {
-            HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3(0, 1, 1);
+            HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3(1, 1, 1);
             HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(0, 10);
             _youDied = true;
         }

@@ -91,6 +91,8 @@ public class SewerBossCombat : MonoBehaviour
     }
     void Killed()
     {
+        GameObject Mem = GameObject.FindGameObjectWithTag("Memory");
+        Mem.GetComponent<GameMem>().Boss2Killed = true;
         HPBar.SetActive(false);
         GetComponent<SewerBossMove>().enabled = false;
         navMeshAgent.enabled = false;

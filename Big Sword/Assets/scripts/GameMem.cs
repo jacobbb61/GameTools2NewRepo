@@ -10,16 +10,9 @@ public class GameMem : MonoBehaviour
     public bool Boss2Lever;
     public bool Boss2Killed;
 
-    
-
-
     void Start()
     {
         DontDestroyOnLoad(this);
     }
 
-    void Update()
-    {
-        
-    }
 }

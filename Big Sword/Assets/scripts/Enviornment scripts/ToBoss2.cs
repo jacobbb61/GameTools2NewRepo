@@ -19,12 +19,13 @@ public class ToBoss2 : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        UI.SetActive(true);
+       // UI.SetActive(true);
         inside = true;
+        SceneManager.LoadScene("Boss2");
     }
     public void OnTriggerExit(Collider other)
     {
-        UI.SetActive(false);
+       // UI.SetActive(false);
         inside = false;
     }
 }

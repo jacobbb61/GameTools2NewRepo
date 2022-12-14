@@ -12,7 +12,7 @@ public class ToBoss1 : MonoBehaviour
     {
         if (inside==true && Input.GetKeyDown(KeyCode.JoystickButton3))
         {
-            SceneManager.LoadScene("RespawnScene");
+            SceneManager.LoadScene("BOSS1");
         }
     }
 
