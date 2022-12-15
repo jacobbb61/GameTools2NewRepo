@@ -9,12 +9,13 @@ public class Lever : MonoBehaviour
     public GameObject MemoryObj;
     public GameObject Lift;
     public GameObject LiftToBoss;
+    public GameObject LeverOn;
 
 
     private void Start()
     {
         MemoryObj = GameObject.FindGameObjectWithTag("Memory");
-        if (MemoryObj.GetComponent<GameMem>().Boss1Lever == true) { LiftToBoss.SetActive(true); }
+        if (MemoryObj.GetComponent<GameMem>().Boss1Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
     }
 
 
@@ -24,7 +25,7 @@ public class Lever : MonoBehaviour
         {
             MemoryObj.GetComponent<GameMem>().Boss1Lever = true;
             Lift.GetComponent<Lift>().bottom = false;
-            if (MemoryObj.GetComponent<GameMem>().Boss1Lever == true) { LiftToBoss.SetActive(true); }
+            if (MemoryObj.GetComponent<GameMem>().Boss1Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
         }
     }
 
