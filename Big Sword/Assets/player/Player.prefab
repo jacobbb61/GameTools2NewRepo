@@ -3454,7 +3454,7 @@ MonoBehaviour:
   ATK2DMG: 0
   HP: 100
   flasks: 0
-  MaxFlask: 3
+  MaxFlask: 4
   heal: 0
 --- !u!82 &823258347866994135
 AudioSource:
@@ -3468,7 +3468,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

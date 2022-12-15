@@ -48,11 +48,11 @@ public class KnightBossCombat : MonoBehaviour
 
         if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT>=5f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack4(); }
 
-        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(2f); }
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(1.5f); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(2.5f); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(2f); }
 
-        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2.5f); }
-        if ((PhaseChange==true)&&(AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2f); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(3f); }
+        if ((PhaseChange==true)&&(AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2.5f); }
 
         
     }
@@ -61,7 +61,7 @@ public class KnightBossCombat : MonoBehaviour
     public void Attack1(float time)
     {
         AtkT = time;
-        navMeshAgent.speed = 4f; navMeshAgent.angularSpeed = 360f;
+        navMeshAgent.speed = 2f; navMeshAgent.angularSpeed = 300f;
         anim.SetTrigger("Attack1");
         attack3 = false;
     }

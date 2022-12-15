@@ -2231,15 +2231,15 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1134991818323686228, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}
-      insertIndex: 4
+      insertIndex: 2
       addedObject: {fileID: 1190471895}
     - targetCorrespondingSourceObject: {fileID: 1134991818323686228, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}
-      insertIndex: 5
+      insertIndex: 3
       addedObject: {fileID: 1786741131}
     - targetCorrespondingSourceObject: {fileID: 1134991818323686228, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}
-      insertIndex: 6
+      insertIndex: 4
       addedObject: {fileID: 1823906645}
   m_SourcePrefab: {fileID: 100100000, guid: 604dba6cf4a4f4843a7283f97b7857bd, type: 3}
 --- !u!95 &1134991819118674408 stripped
