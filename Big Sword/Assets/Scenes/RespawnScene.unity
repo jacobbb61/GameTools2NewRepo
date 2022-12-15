@@ -17049,6 +17049,11 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2577839985725380722, guid: 604dba6cf4a4f4843a7283f97b7857bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1134991818323686228, guid: 604dba6cf4a4f4843a7283f97b7857bd,

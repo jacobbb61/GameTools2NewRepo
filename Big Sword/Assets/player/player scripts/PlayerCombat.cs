@@ -9,12 +9,14 @@ public class PlayerCombat : MonoBehaviour
     public Object RespawnScene;
     public Animator YouDiedAnim;
     Animator anim;
+    public AudioSource PlayerSource;
+    public AudioClip Death1, Death2, Death3;
  
     public Transform player; 
     GameObject HPObj;
     public TextMeshProUGUI FlaskNum;
 
-
+    private int num = 1;
 
     public float MaxHP, ATK1DMG, ATK2DMG;
     public float HP;
@@ -65,8 +67,9 @@ public class PlayerCombat : MonoBehaviour
             HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(0, 10);
             _youDied = true;
         }
-        if (_youDied) { _youDiedTime += Time.deltaTime; YouDiedAnim.SetTrigger("Active"); player.GetComponent<PlayerMove>().enabled = false; CD = false; }
+        if (_youDied) { _youDiedTime += Time.deltaTime; YouDiedAnim.SetTrigger("Active"); player.GetComponent<PlayerMove>().enabled = false; CD = false;}
         if (_youDiedTime >= 4.25f) { SceneManager.LoadScene("RespawnScene"); }
+       // if (_youDiedTime <= 0.02f && _youDiedTime >= 0.01f) { DiedAudio(Random.Range(1, 3)); }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK
 
         if ((CD == true) && (GetComponentInParent<PlayerMove>().stamina >= 10f))
@@ -258,7 +261,16 @@ public class PlayerCombat : MonoBehaviour
     }
 
 
+    void DiedAudio()
+    {
+        
+    
+        if (num == 1) { PlayerSource.clip = Death1; PlayerSource.Play(); }
+        if (num == 2) { PlayerSource.clip = Death2; PlayerSource.Play(); }
+        if (num == 3) { PlayerSource.clip = Death3; PlayerSource.Play(); num = 0; }
 
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -268,16 +280,20 @@ public class PlayerCombat : MonoBehaviour
                    if (other.CompareTag("EnemyAttack"))
                    {
                        HP -= EnemyDMG ;
-                   }
+               // DiedAudio(Random.Range(1, 3));
+               DiedAudio(); num++;
+            }
             if (other.CompareTag("EnemyAttack2"))
             {
                 HP -= EnemyDMG2;
+                DiedAudio(); num++;
             }
         }   
         if (other.CompareTag("instant kill"))
                {
                    HP -= 1000;
-               }
+            DiedAudio(); num++;
+        }
     }
 }
 
