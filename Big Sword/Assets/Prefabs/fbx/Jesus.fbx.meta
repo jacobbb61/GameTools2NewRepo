@@ -1,0 +1,276 @@
+fileFormatVersion: 2
+guid: efafc9eeebc8f4847a6fd5cf1b9792c9
+ModelImporter:
+  serializedVersion: 22103
+  internalIDToNameTable:
+  - first:
+      74: -8050946271626155325
+    second: ARMDOL.001|CubeAction.062
+  - first:
+      74: -1129755267608942715
+    second: ARMDOL.001|Shader NodetreeAction
+  - first:
+      74: -6312611115746381706
+    second: ARMDOL.001|Shader NodetreeAction.001
+  - first:
+      74: 8916292355726412724
+    second: ARMDOL.001|Shader NodetreeAction.003
+  - first:
+      74: -1960462947212934655
+    second: ARMUPL.001|CubeAction.062
+  - first:
+      74: 1194601270873768273
+    second: ARMUPL.001|Shader NodetreeAction
+  - first:
+      74: 6606670610872323150
+    second: ARMUPL.001|Shader NodetreeAction.001
+  - first:
+      74: -8118892041536116325
+    second: ARMUPL.001|Shader NodetreeAction.003
+  - first:
+      74: 232713129059765445
+    second: FINGERL.001|CubeAction.062
+  - first:
+      74: 6270590913723169284
+    second: FINGERL.001|Shader NodetreeAction
+  - first:
+      74: 5602446480090795329
+    second: FINGERL.001|Shader NodetreeAction.001
+  - first:
+      74: 2612766180675740718
+    second: FINGERL.001|Shader NodetreeAction.003
+  - first:
+      74: 8295692620254214238
+    second: FINGERSR.001|CubeAction.062
+  - first:
+      74: -4158492612695253662
+    second: FINGERSR.001|Shader NodetreeAction
+  - first:
+      74: -86388904035496404
+    second: FINGERSR.001|Shader NodetreeAction.001
+  - first:
+      74: 7754729038900572391
+    second: FINGERSR.001|Shader NodetreeAction.003
+  - first:
+      74: 5999979929589948715
+    second: FOOTL.001|CubeAction.062
+  - first:
+      74: 595154426800076692
+    second: FOOTL.001|Shader NodetreeAction
+  - first:
+      74: 3484414246079688926
+    second: FOOTL.001|Shader NodetreeAction.001
+  - first:
+      74: -2736910656318497732
+    second: FOOTL.001|Shader NodetreeAction.003
+  - first:
+      74: 442751478265447179
+    second: FOOTR.001|CubeAction.062
+  - first:
+      74: -3994028389996748279
+    second: FOOTR.001|Shader NodetreeAction
+  - first:
+      74: 4164469038261080666
+    second: FOOTR.001|Shader NodetreeAction.001
+  - first:
+      74: -1849777353873725392
+    second: FOOTR.001|Shader NodetreeAction.003
+  - first:
+      74: 2106054197277933673
+    second: HANDL.001|CubeAction.062
+  - first:
+      74: -3772262338531005219
+    second: HANDL.001|Shader NodetreeAction
+  - first:
+      74: -50260891917421304
+    second: HANDL.001|Shader NodetreeAction.001
+  - first:
+      74: 6169867599149377595
+    second: HANDL.001|Shader NodetreeAction.003
+  - first:
+      74: 4102212032469245928
+    second: HANDR.001|CubeAction.062
+  - first:
+      74: -5161402387564646919
+    second: HANDR.001|Shader NodetreeAction
+  - first:
+      74: -4839166708120162386
+    second: HANDR.001|Shader NodetreeAction.001
+  - first:
+      74: -6199978571720163378
+    second: HANDR.001|Shader NodetreeAction.003
+  - first:
+      74: 1587038887608298964
+    second: LEGLOR.003|CubeAction.062
+  - first:
+      74: -1506687862735370552
+    second: LEGLOR.003|Shader NodetreeAction
+  - first:
+      74: -2047305701723290784
+    second: LEGLOR.003|Shader NodetreeAction.001
+  - first:
+      74: -8136261410152022174
+    second: LEGLOR.003|Shader NodetreeAction.003
+  - first:
+      74: 6655942955137673439
+    second: LEGLOR.004|CubeAction.062
+  - first:
+      74: -3962357777821777967
+    second: LEGLOR.004|Shader NodetreeAction
+  - first:
+      74: -3456198203774460806
+    second: LEGLOR.004|Shader NodetreeAction.001
+  - first:
+      74: 8340773868917547311
+    second: LEGLOR.004|Shader NodetreeAction.003
+  - first:
+      74: 2947220617780762576
+    second: LEGLOR.005|CubeAction.062
+  - first:
+      74: -2616590286044758119
+    second: LEGLOR.005|Shader NodetreeAction
+  - first:
+      74: -4182879845453706296
+    second: LEGLOR.005|Shader NodetreeAction.001
+  - first:
+      74: -336619526574288978
+    second: LEGLOR.005|Shader NodetreeAction.003
+  - first:
+      74: 6417902703795193630
+    second: LEGUPL.001|CubeAction.062
+  - first:
+      74: 3916557443368506725
+    second: LEGUPL.001|Shader NodetreeAction
+  - first:
+      74: 1357636182582616515
+    second: LEGUPL.001|Shader NodetreeAction.001
+  - first:
+      74: -7164397795418461738
+    second: LEGUPL.001|Shader NodetreeAction.003
+  - first:
+      74: -4327399988991035706
+    second: LEGUPR.001|CubeAction.062
+  - first:
+      74: -3078559737269996135
+    second: LEGUPR.001|Shader NodetreeAction
+  - first:
+      74: -6843401047453342102
+    second: LEGUPR.001|Shader NodetreeAction.001
+  - first:
+      74: 7321075896703220707
+    second: LEGUPR.001|Shader NodetreeAction.003
+  - first:
+      74: -5092536327329044345
+    second: THUMBL.001|CubeAction.062
+  - first:
+      74: -8702490152992471753
+    second: THUMBL.001|Shader NodetreeAction
+  - first:
+      74: 2269134119008140597
+    second: THUMBL.001|Shader NodetreeAction.001
+  - first:
+      74: -2419845372474614710
+    second: THUMBL.001|Shader NodetreeAction.003
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
