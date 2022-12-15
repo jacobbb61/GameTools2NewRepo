@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class KnightBossCombat : MonoBehaviour
+public class FinalBossCombat : MonoBehaviour
 {
     GameObject player;
     Animator anim;
@@ -35,26 +35,26 @@ public class KnightBossCombat : MonoBehaviour
         if (dead == true && AtkT < 20f) { Killed(); AtkT = 200f; }
         HPBar.transform.localScale = new Vector3(0.5f, 0.1f, HP);
 
-        if (AtkT > 0f) { AtkT -= Time.deltaTime;  } else { navMeshAgent.speed = 1.8f; navMeshAgent.angularSpeed = 360f;  }
-        if (AtkT > 1f && AtkT<1.5f && attack3==true) { navMeshAgent.angularSpeed = 6000f; } 
-        if (AtkT > 0.9f && AtkT<1.2f && attack3==true) { navMeshAgent.speed = 500f; navMeshAgent.stoppingDistance = 5f; } 
-        if (AtkT < 0.9f && attack3==true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; navMeshAgent.stoppingDistance = 1f; }
+        if (AtkT > 0f) { AtkT -= Time.deltaTime; } else { navMeshAgent.speed = 1.8f; navMeshAgent.angularSpeed = 360f; }
+        if (AtkT > 1f && AtkT < 1.5f && attack3 == true) { navMeshAgent.angularSpeed = 6000f; }
+        if (AtkT > 0.9f && AtkT < 1.2f && attack3 == true) { navMeshAgent.speed = 500f; navMeshAgent.stoppingDistance = 5f; }
+        if (AtkT < 0.9f && attack3 == true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; navMeshAgent.stoppingDistance = 1f; }
 
 
-        if ((PhaseChange==true) && Vector3.Distance(transform.position, player.transform.position) < Atk1Range) { Atk4WaitT += Time.deltaTime; }
+        if ((PhaseChange == true) && Vector3.Distance(transform.position, player.transform.position) < Atk1Range) { Atk4WaitT += Time.deltaTime; }
 
         if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3f); }
         if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3f); }
 
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT>=5f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack4(); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT >= 5f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack4(); }
 
         if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(2f); }
         if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(1.5f); }
 
-        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2.5f); }
-        if ((PhaseChange==true)&&(AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2f); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range + 2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range + 2))) { Attack1(2.5f); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range + 2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range + 2))) { Attack1(2f); }
 
-        
+
     }
 
 
@@ -71,7 +71,7 @@ public class KnightBossCombat : MonoBehaviour
         navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 400f;
         anim.SetTrigger("Attack2");
         attack3 = false;
-    }  
+    }
 
     public void Attack3(float time)
     {
@@ -99,7 +99,7 @@ public class KnightBossCombat : MonoBehaviour
         GameObject Mem = GameObject.FindGameObjectWithTag("Memory");
         Mem.GetComponent<GameMem>().Boss1Killed = true;
         HPBar.SetActive(false);
-        GetComponent<KnightBossMove>().enabled = false;
+        GetComponent<FinalBossMove>().enabled = false;
         navMeshAgent.enabled = false;
         GetComponentInChildren<EnemyDetect>().enabled = false;
         anim.SetTrigger("Dead");

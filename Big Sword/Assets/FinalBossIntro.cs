@@ -10,8 +10,8 @@ public class FinalBossIntro : MonoBehaviour
     {
         Player.GetComponentInChildren<PlayerCombat>().enabled = false;
         Player.GetComponent<PlayerMove>().enabled = false;
-        Boss.GetComponent<KnightBossCombat>().enabled = false;
-        Boss.GetComponent<KnightBossMove>().enabled = false;
+        Boss.GetComponent<FinalBossCombat>().enabled = false;
+        Boss.GetComponent<FinalBossMove>().enabled = false;
     }
     void Update()
     {
@@ -20,8 +20,8 @@ public class FinalBossIntro : MonoBehaviour
         {
             Player.GetComponentInChildren<PlayerCombat>().enabled = true;
             Player.GetComponent<PlayerMove>().enabled = true;
-            Boss.GetComponent<KnightBossCombat>().enabled = true;
-            Boss.GetComponent<KnightBossMove>().enabled = true;
+            Boss.GetComponent<FinalBossCombat>().enabled = true;
+            Boss.GetComponent<FinalBossMove>().enabled = true;
             gameObject.SetActive(false);
         }
     }
