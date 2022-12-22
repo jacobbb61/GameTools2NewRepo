@@ -11,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     Animator anim;
     public AudioSource PlayerSource;
     public AudioClip Death1, Death2, Death3;
+    public AudioClip Swipe;
  
     public Transform player; 
     GameObject HPObj;
@@ -20,7 +21,7 @@ public class PlayerCombat : MonoBehaviour
 
     public float MaxHP, ATK1DMG, ATK2DMG;
     public float HP;
-    private float  atk1Time, atk2Time, atk3Time, atk4Time, atk5Time, healT;
+    public float  atk1Time, atk2Time, atk3Time, atk4Time, atk5Time, healT;
 
     public int flasks;
     public int MaxFlask;
@@ -30,11 +31,10 @@ public class PlayerCombat : MonoBehaviour
     private float _youDiedTime = 0f;
     private bool _youDied = false;
 
-    public bool heal;
-    private bool attack1, attack2charge, attack2release, attack3, attack4, attack5,timestart1, timestart3, timestart4, timestart5;
-      
-    private bool canatk = true;
-    private bool CD = true;
+    public bool heal, attack2charge, attack2release;
+    private bool attack1, attack3, attack4, attack5,timestart1, timestart3, timestart4, timestart5;
+
+    public bool CD = true;
    
    
     void Start()
@@ -55,7 +55,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////HEALTH BAR
+        /////////////////////////////////////////////////////////////////////////////////////////////////HEALTH BAR
         if (HP > 0)
         {
             HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3((HP / 15), 1, 1);
@@ -69,75 +69,128 @@ public class PlayerCombat : MonoBehaviour
         }
         if (_youDied) { _youDiedTime += Time.deltaTime; YouDiedAnim.SetTrigger("Active"); player.GetComponent<PlayerMove>().enabled = false; CD = false;}
         if (_youDiedTime >= 4.25f) { SceneManager.LoadScene("RespawnScene"); }
-       // if (_youDiedTime <= 0.02f && _youDiedTime >= 0.01f) { DiedAudio(Random.Range(1, 3)); }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK
 
-        if ((CD == true) && (GetComponentInParent<PlayerMove>().stamina >= 10f))
+        if (atk1Time > 0f || atk2Time > 0f || atk3Time > 0f || atk4Time > 0f || atk5Time>0f ) { GetComponentInParent<PlayerMove>().turnSmoothTime = 0.3f; } else { GetComponentInParent<PlayerMove>().turnSmoothTime = 0.1f; }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK
+       
+
+        if ((CD == true) && (attack1 == false) && (atk1Time==0) && (GetComponentInParent<PlayerMove>().stamina >= 10f)) //start attack
         {
-            if ((Input.GetAxis("RT")) == 1f) { attack1 = true; }
+            if (Input.GetAxis("RT") == 1f && (CD==true)) { attack1 = true; CD = false;           }
         }
 
-            if (attack1 == true) { timestart1 = true; atk1Time = 0f; CD = false; attack1 = false;
+        if (attack1 == true) //attack
+        {
+            CD = false;
+            timestart1 = true;
+            atk1Time = 0f;
+            PlayerSource.clip = Swipe; PlayerSource.Play();
             anim.SetBool("HeavyAttack", true);
+            GetComponentInParent<PlayerMove>().StaminaHolt = true;
+            GetComponentInParent<PlayerMove>().canSpDoOB = false;
             GetComponentInParent<PlayerMove>().stamina -= 10f; 
-            GetComponentInParent<PlayerMove>().StaminaHolt = true; 
-            GetComponentInParent<PlayerMove>().canwalk= false;  
-            GetComponentInParent<PlayerMove>().canSpDoOB = false; }
-            if (timestart1 == true) { atk1Time += Time.deltaTime;  attack1 = false; GetComponentInParent<PlayerMove>().Speed = 0f; }
-            if ((atk1Time >= 0.8f)&&(atk1Time<=1.2f)) { anim.SetBool("HeavyAttack", false); }
-            if (atk1Time > 0.8f) {GetComponentInParent<PlayerMove>().canSpDoOB = true;}
-            if ((atk1Time > 0.8f) && (Input.GetKey(KeyCode.JoystickButton1))) {
+            attack1 = false;
+        }
+
+        if (timestart1 == true) { atk1Time += Time.deltaTime; attack1 = false; GetComponentInParent<PlayerMove>().Speed = 0.1f; }
+
+        if ((atk1Time > 0f) && (atk1Time < 0.01f) && (timestart1==true)) {}
+
+        if ((atk1Time >= 0.8f) && (atk1Time <= 1.2f)) { anim.SetBool("HeavyAttack", false); GetComponentInParent<PlayerMove>().canSpDoOB = true; }
+
+        if ((atk1Time > 0.8f) && (Input.GetKey(KeyCode.JoystickButton1)))
+        {
             timestart1 = false; CD = true; atk1Time = 0f;
-            GetComponentInParent<PlayerMove>().canwalk = true;
             GetComponentInParent<PlayerMove>().StaminaHolt = false;
-            }
-            if (atk1Time > 1.25f) { timestart1 = false;  CD = true;  atk1Time = 0f;
-            GetComponentInParent<PlayerMove>().canwalk= true;    
+        }
+
+        if (atk1Time >= 1.25f)
+        {
+            timestart1 = false; 
+            CD = true; 
+            atk1Time = 0f;
             GetComponentInParent<PlayerMove>().StaminaHolt = false;
             attack1 = false;
-            }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////LEFT TRIGGER ATTACK
-
-        if ((canatk == true) && (CD == true) && (atk2Time<=0f)&& (GetComponentInParent<PlayerMove>().stamina >= 30f))
-        {
-            if ((Input.GetAxis("LT")) > 0f) { attack2charge = true; 
-            GetComponentInParent<PlayerMove>().StaminaHolt = true;
-            GetComponentInParent<PlayerMove>().canwalk= false;  
-            GetComponentInParent<PlayerMove>().canSpDoOB = false; }
         }
-        if (((Input.GetAxis("LT")) == 0f)&&(atk2Time>0.1f)&&(atk2Time<1f)&&(attack2release==false)) { atk2Time = 0f; attack2charge = false; anim.SetBool("SpecialAttackCharge", false); CD = true;
-            GetComponentInParent<PlayerMove>().canwalk= true;  
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////LEFT TRIGGER ATTACK    
+
+        if ((CD == true) && (atk2Time == 0f) && (attack2charge==false) && (GetComponentInParent<PlayerMove>().stamina >= 30f)) //first charge
+        {
+            if ((Input.GetAxis("LT")) > 0f)
+            {
+                attack2charge = true; CD = false;
+                GetComponentInParent<PlayerMove>().StaminaHolt = true;
+                GetComponentInParent<PlayerMove>().canwalk = false;
+                GetComponentInParent<PlayerMove>().canSpDoOB = false;
+            }
+        }
+
+        if (attack2charge == true)  // in charge
+        {
+           
+            atk2Time += Time.deltaTime; CD = false;
+            anim.SetBool("SpecialAttackCharge", true); 
+        }
+
+        if (((Input.GetAxis("LT")) == 0f) && (atk2Time < 0.5f) && (CD == false)) //release early
+        { 
+            atk2Time = 0f; 
+            attack2charge = false; 
+            anim.SetBool("SpecialAttackCharge", false); 
+            CD = true;
+            GetComponentInParent<PlayerMove>().canwalk = true;
             GetComponentInParent<PlayerMove>().canSpDoOB = true;
-            GetComponentInParent<PlayerMove>().StaminaHolt = false; }
-        if (((Input.GetAxis("LT")) == 0f) && (atk2Time >= 1f)&&(attack2charge==true)) { attack2release = true; atk2Time = 0f; attack2charge = false; GetComponentInParent<PlayerMove>().stamina -= 30f; }
-        if (attack2charge==true) {  atk2Time += Time.deltaTime;  anim.SetBool("SpecialAttackCharge", true); CD = false;   }  
-        if (attack2release==true) {
-            atk2Time += Time.deltaTime; 
-            
-            anim.SetBool("SpecialAttackRelease", true); 
+            GetComponentInParent<PlayerMove>().StaminaHolt = false;
+        }
+        
+        if (((Input.GetAxis("LT")) == 0f) && (atk2Time >= 0.5f) && (attack2charge == true) && (CD == false)) //release on time
+        {
+            anim.SetBool("SpecialAttackRelease", true);
+            attack2release = true; 
+            atk2Time = 0.5f; 
+            attack2charge = false; 
+            GetComponentInParent<PlayerMove>().stamina -= 30f;
+        }
+
+        if (attack2release == true) //attack
+        {
+            atk2Time += Time.deltaTime;
+            attack2charge = false;
+            anim.SetBool("SpecialAttackRelease", true);
             anim.SetBool("SpecialAttackCharge", false);
             GetComponentInParent<PlayerMove>().canwalk = true;
             GetComponentInParent<PlayerMove>().StaminaHolt = false;
             GetComponentInParent<PlayerMove>().canSpDoOB = true;
- 
-            if (atk2Time >= 2f) { atk2Time = 0f;  attack2release = false; CD = true;}
+            if (atk2Time >= 2.5f) //finish
+            { 
+                attack2release = false; 
+                CD = true; 
+                atk2Time = 0f; 
+                attack2charge = false;
+                anim.SetBool("SpecialAttackRelease", false);
+            } 
         }
-        
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT BUMPER ATTACK 1
-        
-        if ((CD == true) && (GetComponentInParent<PlayerMove>().stamina >= 10f))      
+
+           //////////////////////////////////////////////////////////////////////////////////////////RIGHT BUMPER ATTACK 1
+
+            if ((CD == true) && (GetComponentInParent<PlayerMove>().stamina >= 15f))      
         {
-            if ((Input.GetKeyDown(KeyCode.JoystickButton5))) { attack3 = true;  atk3Time = 0f; }
+            if ((Input.GetKeyDown(KeyCode.JoystickButton5))) { attack3 = true;  atk3Time = 0f; CD = false; }
         }
         if (attack3 == true) { attack3 = false; timestart3 = true;  CD = false; 
             GetComponentInParent<PlayerMove>().StaminaHolt = true;
-            GetComponentInParent<PlayerMove>().stamina -= 10f; }
+            GetComponentInParent<PlayerMove>().stamina -= 10f;
+            PlayerSource.clip = Swipe; PlayerSource.Play();
+        }
         if (timestart3 == true) { atk3Time += Time.deltaTime; anim.SetBool("LightAttack1", true); attack3 = false; }
         if ((atk3Time > 0.1f)) { 
             GetComponentInParent<PlayerMove>().canSpDoOB = false;
             anim.SetBool("LightAttack1", false);
         }
-        if ((atk3Time > 0.5f)){ 
+        if ((atk3Time >= 1f)){ 
             GetComponentInParent<PlayerMove>().StaminaHolt = false;
             GetComponentInParent<PlayerMove>().canSpDoOB = true;
             attack3 = false;
@@ -146,9 +199,9 @@ public class PlayerCombat : MonoBehaviour
             atk3Time = 0f;
         }
 
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT BUMPER ATTACK 2
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT BUMPER ATTACK 2
 
-        if ((atk3Time > 0.15f) && (atk3Time<0.4f) && (GetComponentInParent<PlayerMove>().stamina >= 5f))
+        if ((atk3Time > 0.15f) && (atk3Time<0.5f) && (GetComponentInParent<PlayerMove>().stamina >= 5f))
         {
             if ((Input.GetKeyDown(KeyCode.JoystickButton5))) { attack4 = true; atk4Time = 0f;}
         }
@@ -158,9 +211,9 @@ public class PlayerCombat : MonoBehaviour
         }
         if (attack4 == true)
         {
-           
-          //  attack3 = false; atk3Time = 0f; timestart3 = false;
-             CD = false;  timestart4 = true;
+
+            PlayerSource.clip = Swipe; PlayerSource.Play();
+            CD = false;  timestart4 = true;
             GetComponentInParent<PlayerMove>().StaminaHolt = true;
             GetComponentInParent<PlayerMove>().stamina -= 5f;
             attack4 = false;
@@ -183,25 +236,25 @@ public class PlayerCombat : MonoBehaviour
             CD = true; 
         } 
         
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK 2
+      ////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK 2
 
-        if ((atk1Time > 0.8f) && (atk1Time < 1.1f) && (GetComponentInParent<PlayerMove>().stamina >= 5f))
+        if ((atk1Time > 1f) && (atk1Time < 1.2f) && (atk5Time == 0) && (GetComponentInParent<PlayerMove>().stamina >= 10f))
         {
             if ((Input.GetAxis("RT")) == 1f) { attack5 = true; atk5Time = 0f; timestart1 = false; atk1Time = 0f; attack1 = false; }
         }
-        if ((atk4Time > 0.5f) && (atk4Time < 0.9f) && (GetComponentInParent<PlayerMove>().stamina >= 5f))
+        if ((atk4Time > 0.5f) && (atk4Time < 0.9f) && (atk5Time == 0) && (GetComponentInParent<PlayerMove>().stamina >= 10f))
         {
             if ((Input.GetAxis("RT")) == 1f) { attack5 = true; atk5Time = 0f; timestart4 = false; atk4Time = 0f; attack4 = false; }
         }
         if (attack5 == true)
         {
             CD = false;
-           
+            PlayerSource.clip = Swipe; PlayerSource.Play();
             timestart5 = true;
             GetComponentInParent<PlayerMove>().StaminaHolt = true;
             GetComponentInParent<PlayerMove>().canwalk = false;
             GetComponentInParent<PlayerMove>().canSpDoOB = false;
-            GetComponentInParent<PlayerMove>().stamina -= 5f;
+            GetComponentInParent<PlayerMove>().stamina -= 10f;
         }
         if (timestart5 == true) { atk5Time += Time.deltaTime; anim.SetBool("HeavyAttack2", true); attack5 = false;  }
 
@@ -223,18 +276,7 @@ public class PlayerCombat : MonoBehaviour
             attack5 = false;
             atk5Time = 0f;
         }
-        if (atk5Time > 1f) {
-            anim.SetBool("HeavyAttack2", false);
-            GetComponentInParent<PlayerMove>().canSpDoOB = true; 
-            if (Input.GetKey(KeyCode.JoystickButton1)) { 
-                timestart5 = false; 
-                atk5Time = 0f;
-                CD = true;
-                GetComponentInParent<PlayerMove>().StaminaHolt = false;
-                GetComponentInParent<PlayerMove>().canwalk = true;
-                attack5 = false;
-            }
-        } 
+       
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////FLASKS
 
         if (HP > MaxHP) { HP = MaxHP; }
@@ -263,13 +305,9 @@ public class PlayerCombat : MonoBehaviour
 
     void DiedAudio()
     {
-        
-    
         if (num == 1) { PlayerSource.clip = Death1; PlayerSource.Play(); }
         if (num == 2) { PlayerSource.clip = Death2; PlayerSource.Play(); }
-        if (num == 3) { PlayerSource.clip = Death3; PlayerSource.Play(); num = 0; }
-
-        
+        if (num == 3) { PlayerSource.clip = Death3; PlayerSource.Play(); num = 0; } 
     }
 
     private void OnTriggerEnter(Collider other)

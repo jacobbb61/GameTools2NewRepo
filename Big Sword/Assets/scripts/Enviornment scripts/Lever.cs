@@ -10,12 +10,13 @@ public class Lever : MonoBehaviour
     public GameObject Lift;
     public GameObject LiftToBoss;
     public GameObject LeverOn;
-
+    AudioSource Source;
 
     private void Start()
     {
         MemoryObj = GameObject.FindGameObjectWithTag("Memory");
         if (MemoryObj.GetComponent<GameMem>().Boss1Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
+        Source = GetComponent<AudioSource>();
     }
 
 
@@ -25,6 +26,7 @@ public class Lever : MonoBehaviour
         {
             MemoryObj.GetComponent<GameMem>().Boss1Lever = true;
             Lift.GetComponent<Lift>().bottom = false;
+            Source.Play();
             if (MemoryObj.GetComponent<GameMem>().Boss1Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
         }
     }

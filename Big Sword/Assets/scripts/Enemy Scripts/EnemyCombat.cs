@@ -8,10 +8,11 @@ public class EnemyCombat : MonoBehaviour
     public Animator anim;
     public GameObject ThisEnemy, ThisEnemyDetect, HPBar;
     public int HP;
+    AudioSource Source;
 
     void Start()
     {
-       // anim = GetComponentInChildren<Animator>();
+        Source = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -31,9 +32,13 @@ public class EnemyCombat : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {      
-        if (other.CompareTag("playerattack")){ HP--; }  
+        if (other.CompareTag("playerattack"))
+        {
+            HP--; 
+            Source.Play(); 
+        }  
     }
 
 }

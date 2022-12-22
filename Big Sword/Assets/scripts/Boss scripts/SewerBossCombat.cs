@@ -6,7 +6,7 @@ public class SewerBossCombat : MonoBehaviour
 {
     GameObject player;
     Animator anim;
-
+    AudioSource Source;
     public GameObject HPBar, ReturnObj;
 
     private NavMeshAgent navMeshAgent;
@@ -26,6 +26,7 @@ public class SewerBossCombat : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponentInChildren<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        Source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -104,6 +105,10 @@ public class SewerBossCombat : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("playerattack")) { HP--; }
+        if (other.CompareTag("playerattack"))
+        {
+            HP--;
+            Source.Play();
+        }
     }
 }

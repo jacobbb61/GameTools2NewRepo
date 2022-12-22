@@ -12,18 +12,24 @@ public class Lift : MonoBehaviour
     public Transform upPos;
     public Transform bottomPos;
     public Transform targetPosition;
-
+    AudioSource Source;
     private GameObject Player;
 
     private void Start()
     {
+        Source = GetComponent<AudioSource>();
         Player = GameObject.FindGameObjectWithTag("Player");
         bottom = true;
     }
     void Update()
     {
-        if (move == true) { transform.position = Vector3.MoveTowards(transform.position, targetPosition.position, speed * Time.deltaTime); }
+        if (move == true) 
+        { 
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition.position, speed * Time.deltaTime);
+           // if (transform.position == upPos.position) { Source.enabled = false;} else {  Source.enabled = true; } 
+        } 
         if ((bottom == true) && (transform.position == upPos.position)) { move = false; }
+       
     }
 
     private void OnTriggerEnter(Collider other)

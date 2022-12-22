@@ -2096,6 +2096,9 @@ GameObject:
   - component: {fileID: 4818841141353686598}
   - component: {fileID: 4818841141353686609}
   - component: {fileID: 4818841141353686649}
+  - component: {fileID: 6924089474373524374}
+  - component: {fileID: 7992024739923882618}
+  - component: {fileID: 877315888679401889}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2151,13 +2154,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
   StaminaObj: {fileID: 0}
+  Walk: {fileID: 8300000, guid: f0161416e39092342bcb59692bb9fc8a, type: 3}
+  Roll: {fileID: 8300000, guid: 8970d20b45eebe2449a7f2f97c59f358, type: 3}
+  WalkSource: {fileID: 7992024739923882618}
+  CombatSource: {fileID: 877315888679401889}
   MaxStamina: 0
   DexMod: 0
   Speed: 0
   PLspeed: 3
   SRspeed: 8
+  ATKspeed: 0
   RP: 12.5
   stamina: 99
+  turnSmoothTime: 0.1
   sprint: 0
   amIGrounded: 0
   roll: 0
@@ -2166,6 +2175,206 @@ MonoBehaviour:
   STdrain: 0
   canSpDoOB: 0
   StaminaHolt: 0
+--- !u!81 &6924089474373524374
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818841141353686597}
+  m_Enabled: 1
+--- !u!82 &7992024739923882618
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818841141353686597}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f0161416e39092342bcb59692bb9fc8a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 120
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &877315888679401889
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818841141353686597}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 0.7
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4818841141696282754
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,15 +3656,26 @@ MonoBehaviour:
   Death1: {fileID: 8300000, guid: d337e95fa1aad884c97a6fd3f79b4e8b, type: 3}
   Death2: {fileID: 8300000, guid: d62f11f1fee765c48b7a137f6d808be4, type: 3}
   Death3: {fileID: 8300000, guid: 4103d2b351512cc4d982b369eb265efa, type: 3}
+  Swipe: {fileID: 8300000, guid: d304b5c8f3eb95b4eae8b6107056a791, type: 3}
+  SwordHit1: {fileID: 8300000, guid: 2b9a46280853a81429c74959c86b156a, type: 3}
   player: {fileID: 4818841141353686598}
   FlaskNum: {fileID: 0}
   MaxHP: 100
   ATK1DMG: 0
   ATK2DMG: 0
   HP: 100
+  atk1Time: 0
+  atk2Time: 0
+  atk3Time: 0
+  atk4Time: 0
+  atk5Time: 0
+  healT: 0
   flasks: 0
   MaxFlask: 4
   heal: 0
+  attack2charge: 0
+  attack2release: 0
+  CD: 1
 --- !u!82 &823258347866994135
 AudioSource:
   m_ObjectHideFlags: 0

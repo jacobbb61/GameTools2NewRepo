@@ -6,7 +6,8 @@ public class KnightCombat : MonoBehaviour
 {
     GameObject player;
     Animator anim;
-
+    AudioSource Source;
+    public AudioClip Hit, Swipe;
     public float Atk1Range, Atk2Range;
     public float AtkT, Atk3WaitT;
 
@@ -23,6 +24,7 @@ public class KnightCombat : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponentInChildren<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        Source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,20 +48,29 @@ public class KnightCombat : MonoBehaviour
 
     public void Attack1()
     {
-        AtkT = 2f + 1f;
+        AtkT = 2.5f;
         anim.SetTrigger("Attack1");
         navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f;
+        if (AtkT >= 2f)
+        {
+            Source.clip = Swipe;
+            Source.Play();
+        } else { Source.clip = Swipe; Source.Play(); }
     }
     public void Attack2()
     {
         AtkT = 2f;
         anim.SetTrigger("Attack2");
+        Source.clip = Swipe;
+        Source.Play();
     }
     public void Attack3()
     {
         AtkT = 4f;
         navMeshAgent.speed = 2f; navMeshAgent.angularSpeed = 3000f;
         anim.SetTrigger("Attack3");
+        Source.clip = Swipe;
+        Source.Play(); 
     }
 
     void Killed()
@@ -74,6 +85,11 @@ public class KnightCombat : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("playerattack")) { HP--; }
+        if (other.CompareTag("playerattack"))
+        {
+            HP--;
+            Source.clip = Hit;
+            Source.Play();
+        }
     }
 }

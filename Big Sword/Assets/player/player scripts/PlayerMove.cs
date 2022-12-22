@@ -10,19 +10,21 @@ public class PlayerMove : MonoBehaviour
     public Transform Cam;
     public GameObject StaminaObj;
     CharacterController controller;
-
+    public AudioClip Walk, Roll;
+    public AudioSource WalkSource;
+    public AudioSource CombatSource;
 
     [Header("Floats")]
 
     public float MaxStamina;
     public float DexMod;
     public float Speed; // players current speed
-    public float PLspeed, SRspeed; // player speed(walking), Sprint speed
+    public float PLspeed, SRspeed, ATKspeed; // player speed(walking), Sprint speed
     public float RP; //roll power/direction/direction sides
     public float stamina;
 
     private float rollTime;
-    private float turnSmoothTime = 0.1f;
+    public float turnSmoothTime = 0.1f;
     private float turnSmoothVel;
 
 
@@ -44,8 +46,6 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         StaminaObj = GameObject.Find("StaminaObj");
-
-
         anim = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
         rollstart = false;
@@ -80,13 +80,20 @@ public class PlayerMove : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.JoystickButton4) && (amIGrounded == true)&&(canSpDoOB==true)&& (stamina >= 5f))) { sprint = true; }           // sprint
         if ((Input.GetKeyUp(KeyCode.JoystickButton4)) && (canSpDoOB==true)) { sprint = false; }
-        if (sprint == true) { Speed = SRspeed; SPreset = false;  STdrain = true;}
-        if (sprint == false) { SPreset = true;  STdrain = false;}
+        if (sprint == true) { Speed = SRspeed; SPreset = false;  STdrain = true; WalkSource.pitch = 3f; }
+        if (sprint == false) { SPreset = true;  STdrain = false; WalkSource.pitch = 1f; }
         if (stamina<=1) { sprint = false; }
         if  (moving==false) { sprint = false; }
 
-        if ((Input.GetKey(KeyCode.JoystickButton1)) && (amIGrounded == true) && (canSpDoOB==true) && (stamina >= 5f)) { roll = true; canSpDoOB = false; }                          // roll
-        if (roll == true){ rollstart = true; rollTime = 0f; canwalk = false; stamina -= 15; dodgedir = moveDir; StaminaHolt = true; }
+        if ((Input.GetKey(KeyCode.JoystickButton1)) && (amIGrounded == true) && (canSpDoOB==true) && (stamina >= 5f))    // roll
+        {
+            roll = true; 
+            canSpDoOB = false;
+
+        }                       
+        if (roll == true){ rollstart = true; rollTime = 0f; canwalk = false; stamina -= 15; dodgedir = moveDir; StaminaHolt = true;  
+            CombatSource.clip = Roll;
+            CombatSource.Play();}
         if (rollstart == true) { roll = false; rollTime += Time.deltaTime; }
         if ((rollTime > 0.1f) && (rollTime < 0.6f))
         { 
@@ -106,7 +113,7 @@ public class PlayerMove : MonoBehaviour
         if ((moving == true) && (sprint==false)) { anim.SetBool("Walk", true); } else { anim.SetBool("Walk", false); }                                // anim triggers
         if (idle == true) { anim.SetBool("Idle",true); } else { anim.SetBool("Idle", false); }
         if ((sprint==true) && (moving == true)) { anim.SetBool("Sprint", true); } else { anim.SetBool("Sprint", false); }
-        //if ((GetComponentInChildren<PlayerCombat>().healT >0f)&&((GetComponentInChildren<PlayerCombat>().healT < 0.5f))) { anim.SetBool("Heal", true); } else { anim.SetBool("Heal", false); }
+        if ((GetComponentInChildren<PlayerCombat>().healT >0f)&&((GetComponentInChildren<PlayerCombat>().healT < 0.5f))) { anim.SetBool("Heal", true); } else { anim.SetBool("Heal", false); }
 
 
         if ((STdrain==true)&&(stamina>=0f)) { stamina -= Time.deltaTime*(20f-(DexMod/3f)); }                                              //stamina
@@ -123,6 +130,16 @@ public class PlayerMove : MonoBehaviour
         if (controller.isGrounded) { amIGrounded = true; } else { amIGrounded = false; } // ground check
 
         if ((controller.isGrounded)&&(controller.velocity.y<=-10f)) { GetComponentInChildren<PlayerCombat>().HP += controller.velocity.y * 3; }
-       // Debug.Log(controller.velocity.y);
+       
+
+        if (moving)
+        {
+            WalkSource.enabled = true;
+            WalkSource.clip = Walk;
+        }
+        else
+        {
+            WalkSource.enabled = false;
+        }
     }
 }

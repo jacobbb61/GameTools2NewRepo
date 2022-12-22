@@ -8,12 +8,14 @@ public class Lever2 : MonoBehaviour
     public GameObject Text;
     public GameObject MemoryObj;
     public GameObject LiftToBoss;
-
+    public GameObject LeverOn;
+    AudioSource Source;
 
     private void Start()
     {
         MemoryObj = GameObject.FindGameObjectWithTag("Memory");
-        if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.SetActive(true); }
+        if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
+        Source = GetComponent<AudioSource>();
     }
 
 
@@ -22,7 +24,8 @@ public class Lever2 : MonoBehaviour
         if (inside == true && Input.GetKeyDown(KeyCode.JoystickButton3))
         {
             MemoryObj.GetComponent<GameMem>().Boss2Lever = true;
-            if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.SetActive(true); }
+            Source.Play();
+            if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
         }
     }
 
