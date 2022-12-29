@@ -37,7 +37,7 @@ public class KnightBossCombat : MonoBehaviour
         HPBar.transform.localScale = new Vector3(0.5f, 0.1f, HP);
 
         if (AtkT > 0f) { AtkT -= Time.deltaTime;  } else { navMeshAgent.speed = 1.8f; navMeshAgent.angularSpeed = 360f;  }
-        if (AtkT > 1f && AtkT<1.5f && attack3==true) { navMeshAgent.angularSpeed = 6000f; } 
+        if (AtkT > 1f && AtkT<1.5f && attack3==true) { navMeshAgent.angularSpeed = 6000f; navMeshAgent.speed = 1f; } 
         if (AtkT > 0.9f && AtkT<1.2f && attack3==true) { navMeshAgent.speed = 500f; navMeshAgent.stoppingDistance = 5f; } 
         if (AtkT < 0.9f && attack3==true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; navMeshAgent.stoppingDistance = 1f; }
 
@@ -49,8 +49,8 @@ public class KnightBossCombat : MonoBehaviour
 
         if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT>=5f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack4(); }
 
-        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(2.5f); }
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(2f); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(Random.Range(1,4)); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(Random.Range(1,4)); }
 
         if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(3f); }
         if ((PhaseChange==true)&&(AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2.5f); }
@@ -66,11 +66,21 @@ public class KnightBossCombat : MonoBehaviour
         anim.SetTrigger("Attack1");
         attack3 = false;
     }
-    public void Attack2(float time)
+    public void Attack2(int num)
     {
-        AtkT = time;
-        navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 400f;
-        anim.SetTrigger("Attack2");
+        if (PhaseChange == false) 
+        {
+            if ( num == 1){ AtkT = 2.5f;anim.SetTrigger("Attack2");navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+            if ( num == 2){ AtkT = 2f;anim.SetTrigger("Attack5");navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
+            if ( num == 3){ AtkT = 2f;anim.SetTrigger("Attack6");navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
+        }
+        else
+        {
+            if (num == 1) { AtkT = 2f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+            if (num == 2) { AtkT = 1.5f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+            if (num == 3) { AtkT = 1.5f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+        }
+        Debug.Log(num);
         attack3 = false;
     }  
 
@@ -78,7 +88,7 @@ public class KnightBossCombat : MonoBehaviour
     {
         attack3 = true;
         AtkT = time;
-        navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f;
+        navMeshAgent.speed = 0.5f; navMeshAgent.angularSpeed = 0.5f;
         anim.SetTrigger("Attack3");
     }
     public void Attack4()
