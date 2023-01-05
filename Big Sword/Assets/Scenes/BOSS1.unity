@@ -7839,7 +7839,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12960064
+  m_Name: pb_Mesh-4423284
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -19273,6 +19273,11 @@ PrefabInstance:
       propertyPath: Door
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6421579053923164643, guid: 46b673796568fdb42aa3ed0e3df63531,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe3092ab83f52c846b71eb12527c5455, type: 2}
     - target: {fileID: 6489943013011883956, guid: 46b673796568fdb42aa3ed0e3df63531,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -19754,7 +19759,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.95
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -25515,7 +25520,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh420414
+  m_Name: pb_Mesh75294
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -61213,7 +61218,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12959702
+  m_Name: pb_Mesh-4422560
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -68017,7 +68022,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12958958
+  m_Name: pb_Mesh-4422922
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -74256,7 +74261,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-12960426
+  m_Name: pb_Mesh-4421330
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

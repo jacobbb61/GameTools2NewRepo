@@ -80,7 +80,6 @@ public class FinalBossCombat : MonoBehaviour
             if (num == 2) { AtkT = 1.5f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
             if (num == 3) { AtkT = 1.5f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
         }
-        Debug.Log(num);
         attack3 = false;
     }
 
