@@ -28,8 +28,8 @@ public class PlayerCombat : MonoBehaviour
 
     private float EnemyDMG, EnemyDMG2;//SlugDMG,
 
-    private float _youDiedTime = 0f;
-    private bool _youDied = false;
+    private float youDiedTime = 0f;
+    public bool youDied = false;
 
     public bool heal, attack2charge, attack2release;
     private bool attack1, attack3, attack4, attack5,timestart1, timestart3, timestart4, timestart5;
@@ -65,10 +65,11 @@ public class PlayerCombat : MonoBehaviour
         {
             HPObj.GetComponentInParent<RectTransform>().localScale = new Vector3(1, 1, 1);
             HPObj.GetComponentInParent<RectTransform>().anchoredPosition = new Vector2(0, 10);
-            _youDied = true;
+            youDied = true;
         }
-        if (_youDied) { _youDiedTime += Time.deltaTime; YouDiedAnim.SetTrigger("Active"); player.GetComponent<PlayerMove>().enabled = false; CD = false;}
-        if (_youDiedTime >= 4.25f) { SceneManager.LoadScene("RespawnScene"); }
+        if (youDied) { youDiedTime += Time.deltaTime; YouDiedAnim.SetTrigger("Active"); player.GetComponent<PlayerMove>().enabled = false; CD = false;}
+        if (youDiedTime >= 4.25f) { SceneManager.LoadScene("RespawnScene"); }
+        if (youDiedTime >= 0.1f && youDiedTime <= 0.25f) { anim.SetTrigger("Stun"); }
 
         if (atk1Time > 0f || atk2Time > 0f || atk3Time > 0f || atk4Time > 0f || atk5Time>0f ) { GetComponentInParent<PlayerMove>().turnSmoothTime = 0.3f; } else { GetComponentInParent<PlayerMove>().turnSmoothTime = 0.1f; }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////RIGHT TRIGGER ATTACK
@@ -317,15 +318,21 @@ public class PlayerCombat : MonoBehaviour
                {
                    if (other.CompareTag("EnemyAttack"))
                    {
-                       HP -= EnemyDMG ;
-               // DiedAudio(Random.Range(1, 3));
-               DiedAudio(); num++;
-            }
-            if (other.CompareTag("EnemyAttack2"))
-            {
-                HP -= EnemyDMG2;
-                DiedAudio(); num++;
-            }
+                       HP -= EnemyDMG ;              
+                       DiedAudio(); num++;
+                   }
+                   else if (other.CompareTag("EnemyAttack2"))
+                   {
+                       HP -= EnemyDMG2;
+                       DiedAudio(); num++;
+                   }
+                   else if (other.CompareTag("FinalBossGrab"))
+                   {
+                       other.GetComponentInParent<FinalBossCombat>().Grab=true;
+                       anim.SetTrigger("Stun");
+                       GetComponentInParent<PlayerMove>().enabled = false;
+                       CD = false;
+                   }
         }   
         if (other.CompareTag("instant kill"))
                {

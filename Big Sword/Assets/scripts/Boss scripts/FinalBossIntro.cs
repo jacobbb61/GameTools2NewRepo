@@ -16,13 +16,14 @@ public class FinalBossIntro : MonoBehaviour
     void Update()
     {
         Timey += Time.deltaTime;
+
         if (Timey >= 10f)
         {
             Player.GetComponentInChildren<PlayerCombat>().enabled = true;
             Player.GetComponent<PlayerMove>().enabled = true;
             Boss.GetComponent<FinalBossCombat>().enabled = true;
             Boss.GetComponent<FinalBossMove>().enabled = true;
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }
