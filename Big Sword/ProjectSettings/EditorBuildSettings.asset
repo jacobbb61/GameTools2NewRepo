@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BOSS3.unity
     guid: 52e8c6a22aa4e4547b3f786fc810f80d
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 028c59b908b216245b5a54d3961c60c0
   m_configObjects: {}

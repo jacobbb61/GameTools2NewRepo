@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13982782
+  m_Name: pb_Mesh-3808898
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -294,7 +294,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh435294
+  m_Name: pb_Mesh201340
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1041,7 +1041,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13982090
+  m_Name: pb_Mesh-3808566
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -13553,7 +13553,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh435230
+  m_Name: pb_Mesh201276
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -14396,7 +14396,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13983114
+  m_Name: pb_Mesh-3807168
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -14561,7 +14561,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13982450
+  m_Name: pb_Mesh-3809230
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -14920,7 +14920,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13981758
+  m_Name: pb_Mesh-3809710
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -15446,7 +15446,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-13983446
+  m_Name: pb_Mesh-3807500
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -16857,7 +16857,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 250
+    OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

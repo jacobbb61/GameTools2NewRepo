@@ -1,14 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class StartScreen : MonoBehaviour
 {
-    public GameObject StartPlane;
+    public bool timer;
+    public GameObject youdied;
+    public float time;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.JoystickButton3)) { StartPlane.SetActive(false); }
+        if (Input.GetKeyDown(KeyCode.JoystickButton3)) 
+        { 
+            timer = true;
+        }
+        if (timer)
+        {
+            time += Time.deltaTime;
+        }
+        if (time >= 1.1f)
+        {
+            SceneManager.LoadScene("TutorialScene");
+        }
     }
 }

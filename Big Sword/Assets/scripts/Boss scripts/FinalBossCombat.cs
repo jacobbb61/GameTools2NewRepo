@@ -146,12 +146,11 @@ public class FinalBossCombat : MonoBehaviour
         GameObject Mem = GameObject.FindGameObjectWithTag("Memory");
         Mem.GetComponent<GameMem>().Boss1Killed = true;
         HPBar.SetActive(false);
-        GetComponent<KnightBossMove>().enabled = false;
+        GetComponent<FinalBossMove>().enabled = false;
         navMeshAgent.enabled = false;
         GetComponentInChildren<EnemyDetect>().enabled = false;
         anim.SetTrigger("Dead");
         HP = 2;
-        Destroy(this.gameObject, 3f);
         ReturnObj.SetActive(true);
     }
     private void OnTriggerEnter(Collider other)

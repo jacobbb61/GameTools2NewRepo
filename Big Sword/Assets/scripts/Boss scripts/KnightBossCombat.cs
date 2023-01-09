@@ -115,7 +115,6 @@ public class KnightBossCombat : MonoBehaviour
         GetComponentInChildren<EnemyDetect>().enabled = false;
         anim.SetTrigger("Dead");
         HP = 2;
-        Destroy(this.gameObject, 3f);
         ReturnObj.SetActive(true);
     }
     private void OnTriggerEnter(Collider other)
