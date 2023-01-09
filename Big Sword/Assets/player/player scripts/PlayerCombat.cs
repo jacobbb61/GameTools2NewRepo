@@ -321,12 +321,12 @@ public class PlayerCombat : MonoBehaviour
                        HP -= EnemyDMG ;              
                        DiedAudio(); num++;
                    }
-                   else if (other.CompareTag("EnemyAttack2"))
+                    if (other.CompareTag("EnemyAttack2"))
                    {
                        HP -= EnemyDMG2;
                        DiedAudio(); num++;
                    }
-                   else if (other.CompareTag("FinalBossGrab"))
+                    if (other.CompareTag("FinalBossGrab"))
                    {
                        other.GetComponentInParent<FinalBossCombat>().Grab=true;
                        anim.SetTrigger("Stun");

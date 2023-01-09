@@ -4,15 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ToBoss2 : MonoBehaviour
 {
-    public GameObject UI;
+    public GameObject youdied;
+    public float time;
     public bool inside;
 
 
     private void Update()
     {
-        if (inside == true && Input.GetKeyDown(KeyCode.JoystickButton3))
+        if (inside == true)
         {
-            SceneManager.LoadScene("Boss2");
+            time += Time.deltaTime;
+            youdied.GetComponent<Animator>().SetTrigger("Exit");
+        }
+
+        if (time >= 1.1f)
+        {
+            SceneManager.LoadScene("BOSS2");
         }
     }
 
@@ -21,7 +28,6 @@ public class ToBoss2 : MonoBehaviour
     {
        // UI.SetActive(true);
         inside = true;
-        SceneManager.LoadScene("Boss2");
     }
     public void OnTriggerExit(Collider other)
     {

@@ -99,13 +99,13 @@ public class FinalBossCombat : MonoBehaviour
         {
             if (num == 1) { AtkT = 2.5f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
             if (num == 2) { AtkT = 2f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
-            if (num == 3) { AtkT = 2f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
+            if (num == 3) { AtkT = 2.5f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
         }
         else
         {
             if (num == 1) { AtkT = 2.3f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
             if (num == 2) { AtkT = 1.8f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
-            if (num == 3) { AtkT = 1.8f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+            if (num == 3) { AtkT = 2f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
         }
         attack3 = false;
     }
