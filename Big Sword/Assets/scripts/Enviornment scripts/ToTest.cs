@@ -18,8 +18,8 @@ public class ToTest : MonoBehaviour
     private void Update()
     {        
         GameMem = GameObject.FindGameObjectWithTag("Memory");
-        if (GameMem.GetComponent<GameMem>().Boss1Killed) { Boss1Killed.SetActive(true); Boss1Alive.SetActive(false); }
-        if (GameMem.GetComponent<GameMem>().Boss2Killed) { Boss2Killed.SetActive(true); Boss2Alive.SetActive(false); }
+        if (GameMem.GetComponent<GameMem>().Boss1Killed || GameMem.GetComponent<GameMem>().Boss2Killed) { Boss1Killed.SetActive(true); Boss1Alive.SetActive(false); }
+        if (GameMem.GetComponent<GameMem>().Boss1Killed && GameMem.GetComponent<GameMem>().Boss2Killed) { Boss2Killed.SetActive(true); Boss2Alive.SetActive(false); }
         if (inside == true)
         {
             time += Time.deltaTime;

@@ -7,6 +7,7 @@ public class SewerBossCombat : MonoBehaviour
     GameObject player;
     Animator anim;
     AudioSource Source;
+    Boss2ArenaManager AM;
     public GameObject HPBar, ReturnObj;
 
     private NavMeshAgent navMeshAgent;
@@ -33,7 +34,7 @@ public class SewerBossCombat : MonoBehaviour
     void Update()
     {
         if (HP <= 0) { dead = true; }
-        if (HP <= 20 && PhaseChange==false) { Phase(); PhaseChange = true; }
+        if (HP <= 30 && PhaseChange==false) { Phase(); PhaseChange = true; }
         if (dead == true && AtkT < 20f) { Killed(); AtkT = 200f; }
         HPBar.transform.localScale = new Vector3(0.5f, 0.1f, HP);
 
@@ -45,15 +46,6 @@ public class SewerBossCombat : MonoBehaviour
             if (AtkT > 1f && AtkT < 1.5f && attack3 == true) { navMeshAgent.angularSpeed = 6000f; }
             if (AtkT > 0.9f && AtkT < 1.2f && attack3 == true) { navMeshAgent.speed = 500f; }
             if (AtkT < 0.9f && attack3 == true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; }
-
-        /*
-        if (Vector3.Distance(transform.position, player.transform.position) < Atk1Range) { Atk3WaitT += Time.deltaTime; }
-
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(); }
-
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(Random.Range(1, 4)); }
-
-        if ((AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range))) { Attack1(); } */
 
 
         if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(); }
@@ -109,6 +101,7 @@ public class SewerBossCombat : MonoBehaviour
     }
     void Killed()
     {
+        AM.BossMusic.enabled = false;
         GameObject Mem = GameObject.FindGameObjectWithTag("Memory");
         Mem.GetComponent<GameMem>().Boss2Killed = true;
         HPBar.SetActive(false);

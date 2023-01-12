@@ -6,6 +6,8 @@ public class StartScreen : MonoBehaviour
 {
     public bool timer;
     public GameObject youdied;
+    public GameObject prompt;
+    public GameObject audio;
     public float time;
 
     void Update()
@@ -13,6 +15,9 @@ public class StartScreen : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.JoystickButton3)) 
         { 
             timer = true;
+            prompt.GetComponent<Animator>().SetTrigger("Active");
+            youdied.GetComponent<Animator>().SetTrigger("Exit");
+            audio.SetActive(true);
         }
         if (timer)
         {

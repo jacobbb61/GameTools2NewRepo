@@ -6,6 +6,7 @@ public class Lever3 : MonoBehaviour
 {
     public bool pulled, inside;
     public GameObject Text;
+    public GameObject Door;
     public GameObject MemoryObj;
     public GameObject LiftToBoss;
     public GameObject LeverOn;
@@ -14,7 +15,12 @@ public class Lever3 : MonoBehaviour
     private void Start()
     {
         MemoryObj = GameObject.FindGameObjectWithTag("Memory");
-        if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.GetComponent<Animator>().enabled = true; LeverOn.SetActive(true); }
+        if (MemoryObj.GetComponent<GameMem>().Boss2Lever2 == true)
+        { 
+            LiftToBoss.GetComponent<Animator>().enabled = true; 
+            LeverOn.SetActive(true);
+            Door.GetComponent<Animator>().SetTrigger("Open");
+        }
         Source = GetComponent<AudioSource>();
     }
 
@@ -23,9 +29,9 @@ public class Lever3 : MonoBehaviour
     {
         if (inside == true && Input.GetKeyDown(KeyCode.JoystickButton3))
         {
-            MemoryObj.GetComponent<GameMem>().Boss2Lever = true;
+            MemoryObj.GetComponent<GameMem>().Boss2Lever2 = true;
             Source.Play();
-            if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.GetComponent<Animator>().enabled = true; LeverOn.SetActive(true); }
+            if (MemoryObj.GetComponent<GameMem>().Boss2Lever2 == true) { LiftToBoss.GetComponent<Animator>().enabled = true; LeverOn.SetActive(true); }
         }
     }
 

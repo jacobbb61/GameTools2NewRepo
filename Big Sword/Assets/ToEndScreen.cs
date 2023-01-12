@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 public class ToEndScreen : MonoBehaviour
 {
     public GameObject UI;
+    public GameObject Player;
     public bool inside;
     public bool timer;
     public GameObject youdied;
+    public GameObject ending;
     public float time;
 
     private void Update()
@@ -20,8 +22,21 @@ public class ToEndScreen : MonoBehaviour
         if (timer)
         {
             time += Time.deltaTime;
+    
         }
-        if (time >= 1.1f)
+        if (time >= 1.3f)
+        {
+            ending.SetActive(true);
+            Player.SetActive(false);
+            UI.SetActive(false);
+            youdied.GetComponent<Animator>().ResetTrigger("Exit");
+        }
+        if (time >= 9f)
+        {
+            youdied.GetComponent<Animator>().SetTrigger("Exit");
+
+        }
+        if (time >= 11)
         {
             SceneManager.LoadScene("EndScreen");
         }

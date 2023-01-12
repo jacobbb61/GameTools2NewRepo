@@ -7,7 +7,7 @@ public class KnightBossCombat : MonoBehaviour
     GameObject player;
     Animator anim;
     AudioSource Source;
-    public GameObject HPBar, ReturnObj;
+    public GameObject HPBar, ReturnObj, musicP1, musicP2;
 
     private NavMeshAgent navMeshAgent;
 
@@ -26,13 +26,21 @@ public class KnightBossCombat : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         Source = GetComponent<AudioSource>();
+        
     }
+ 
 
-    // Update is called once per frame
     void Update()
     {
         if (HP <= 0) { dead = true; }
-        if (HP <= 20 && PhaseChange == false) { Phase(); PhaseChange = true; }
+        if (HP <= 30 && PhaseChange == false) {
+            Phase(); 
+            PhaseChange = true; 
+        } 
+        if (HP>30) { 
+            musicP1.SetActive(true);
+            musicP2.SetActive(false);
+        }
         if (dead == true && AtkT < 20f) { Killed(); AtkT = 200f; }
         HPBar.transform.localScale = new Vector3(0.5f, 0.1f, HP);
 
@@ -45,7 +53,7 @@ public class KnightBossCombat : MonoBehaviour
         if ((PhaseChange==true) && Vector3.Distance(transform.position, player.transform.position) < Atk1Range) { Atk4WaitT += Time.deltaTime; }
 
         if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3f); }
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3f); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(2.25f); }
 
         if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT>=5f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack4(); }
 
@@ -53,7 +61,7 @@ public class KnightBossCombat : MonoBehaviour
         if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(Random.Range(1,4)); }
 
         if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(3f); }
-        if ((PhaseChange==true)&&(AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2.5f); }
+        if ((PhaseChange==true)&&(AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range+2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range+2))) { Attack1(2f); }
 
         
     }
@@ -76,9 +84,9 @@ public class KnightBossCombat : MonoBehaviour
         }
         else
         {
-            if (num == 1) { AtkT = 2f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
-            if (num == 2) { AtkT = 1.5f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
-            if (num == 3) { AtkT = 1.5f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+            if (num == 1) { AtkT = 1.9f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+            if (num == 2) { AtkT = 1.2f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
+            if (num == 3) { AtkT = 1.2f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
         }
         Debug.Log(num);
         attack3 = false;
@@ -104,6 +112,8 @@ public class KnightBossCombat : MonoBehaviour
         AtkT = 3.5f;
         anim.SetBool("Phase2", true);
         anim.SetTrigger("PhaseChange");
+        musicP2.SetActive(true);
+        musicP1.SetActive(false);
     }
     void Killed()
     {

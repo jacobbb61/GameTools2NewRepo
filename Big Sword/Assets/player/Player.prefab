@@ -1709,10 +1709,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3102924754216719354}
   - {fileID: 1747879481967579103}
   - {fileID: 1458699185886269070}
   - {fileID: 5996536767540388686}
+  - {fileID: 3102924754216719354}
   m_Father: {fileID: 2145280626613048533}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2964,8 +2964,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4818841141696282755}
-  - {fileID: 2712502775681634628}
   - {fileID: 5252778350291689707}
+  - {fileID: 2712502775681634628}
   - {fileID: 6154111323492392675}
   m_Father: {fileID: 5622487331721093441}
   m_RootOrder: 1
@@ -3344,8 +3344,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6368286493673264110}
-  - {fileID: 6469228579602025345}
   - {fileID: 3058774982845657132}
+  - {fileID: 6469228579602025345}
   m_Father: {fileID: 5996536767540388686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3670,6 +3670,7 @@ MonoBehaviour:
   healT: 0
   flasks: 0
   MaxFlask: 4
+  youDied: 0
   heal: 0
   attack2charge: 0
   attack2release: 0
@@ -4003,8 +4004,8 @@ Transform:
   m_Children:
   - {fileID: 3888760191530355165}
   - {fileID: 5190559380731994390}
-  - {fileID: 3392788575978238126}
   - {fileID: 8427636749914055111}
+  - {fileID: 3392788575978238126}
   m_Father: {fileID: 4744906723010236799}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
