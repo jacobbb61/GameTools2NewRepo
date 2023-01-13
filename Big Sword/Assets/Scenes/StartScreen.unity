@@ -1252,6 +1252,7 @@ MonoBehaviour:
   Boss1Lever: 0
   Boss1Killed: 0
   Boss2Lever: 0
+  Boss2Lever2: 0
   Boss2Killed: 0
 --- !u!4 &1145030871
 Transform:

@@ -7,7 +7,7 @@ public class SewerBossMove : MonoBehaviour
     Animator anim;
     public Vector3 LastSeen, Vel;
     public bool move;
-    public float speed, detect;
+
     private NavMeshAgent navMeshAgent;
     void Start()
     {

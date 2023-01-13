@@ -7,7 +7,6 @@ public class SewerBossCombat : MonoBehaviour
     GameObject player;
     Animator anim;
     AudioSource Source;
-    Boss2ArenaManager AM;
     public GameObject HPBar, ReturnObj;
 
     private NavMeshAgent navMeshAgent;
@@ -53,14 +52,14 @@ public class SewerBossCombat : MonoBehaviour
             if (AtkT < 0.9f && attack3 == true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; }
 
 
-        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3f); }
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(2.5f); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3.25f); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(2.75f); }
 
         if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(Random.Range(1, 4)); }
         if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { Attack2(Random.Range(1, 4)); }
 
-        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range + 2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range + 2))) { Attack1(2f); }
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range + 2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range + 2))) { Attack1(1.25f); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range + 2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range + 2))) { Attack1(2.25f); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk1Range + 2 && (Vector3.Distance(transform.position, player.transform.position) < Atk2Range + 2))) { Attack1(1.75f); }
 
     }
 
@@ -68,7 +67,7 @@ public class SewerBossCombat : MonoBehaviour
     public void Attack1(float time)
     {
         AtkT = time;
-        navMeshAgent.speed = 10f; navMeshAgent.angularSpeed = 360f;
+        navMeshAgent.speed = 10f; navMeshAgent.angularSpeed = 800f;
         anim.SetTrigger("Attack1");
         attack3 = false;
     }
@@ -77,14 +76,14 @@ public class SewerBossCombat : MonoBehaviour
         if (PhaseChange == false)
         {
             if (num == 1) { AtkT = 1.5f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 300f; }
-            if (num == 2) { AtkT = 1.25f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
-            if (num == 3) { AtkT = 1f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
+            if (num == 2) { AtkT = 1.5f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
+            if (num == 3) { AtkT = 1.25f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 200f; }
         }
         else
         {
-            if (num == 1) { AtkT = 1f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 500f; }
-            if (num == 2) { AtkT = 1f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 500f; }
-            if (num == 3) { AtkT = 1.25f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 500f; }
+            if (num == 1) { AtkT = 1.25f; anim.SetTrigger("Attack2"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 500f; }
+            if (num == 2) { AtkT = 1.25f; anim.SetTrigger("Attack5"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 500f; }
+            if (num == 3) { AtkT = 1f; anim.SetTrigger("Attack6"); navMeshAgent.speed = 1f; navMeshAgent.angularSpeed = 500f; }
         }
         Debug.Log(num);
         attack3 = false;
@@ -106,7 +105,6 @@ public class SewerBossCombat : MonoBehaviour
     }
     void Killed()
     {
-        AM.BossMusic.enabled = false;
         GameObject Mem = GameObject.FindGameObjectWithTag("Memory");
         Mem.GetComponent<GameMem>().Boss2Killed = true;
         HPBar.SetActive(false);

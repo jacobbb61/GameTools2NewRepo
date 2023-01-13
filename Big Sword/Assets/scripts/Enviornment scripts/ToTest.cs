@@ -4,16 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ToTest : MonoBehaviour
 {
-    public GameObject UI, Boss1Killed, Boss2Killed, GameMem;
+    public GameObject Boss1Killed, Boss2Killed, GameMem;
     public GameObject Boss1Alive, Boss2Alive;
     public bool inside;
     public GameObject youdied;
     public float time;
 
-    public void Awake()
-    {
 
-    }
 
     private void Update()
     {        
@@ -38,9 +35,5 @@ public class ToTest : MonoBehaviour
   
         inside = true;
     }
-    public void OnTriggerExit(Collider other)
-    {
-    
-        inside = false;
-    }
+
 }

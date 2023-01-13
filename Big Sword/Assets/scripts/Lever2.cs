@@ -25,8 +25,9 @@ public class Lever2 : MonoBehaviour
         {
             MemoryObj.GetComponent<GameMem>().Boss2Lever = true;
             Source.Play();
-            if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
+
         }
+        if (MemoryObj.GetComponent<GameMem>().Boss2Lever == true) { LiftToBoss.SetActive(true); LeverOn.SetActive(true); }
     }
 
     private void OnTriggerEnter(Collider other)

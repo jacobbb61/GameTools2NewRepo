@@ -8,7 +8,6 @@ public class Lever3 : MonoBehaviour
     public GameObject Text;
     public GameObject Door;
     public GameObject MemoryObj;
-    public GameObject LiftToBoss;
     public GameObject LeverOn;
     AudioSource Source;
 
@@ -17,7 +16,6 @@ public class Lever3 : MonoBehaviour
         MemoryObj = GameObject.FindGameObjectWithTag("Memory");
         if (MemoryObj.GetComponent<GameMem>().Boss2Lever2 == true)
         { 
-            LiftToBoss.GetComponent<Animator>().enabled = true; 
             LeverOn.SetActive(true);
             Door.GetComponent<Animator>().SetTrigger("Open");
         }
@@ -31,9 +29,12 @@ public class Lever3 : MonoBehaviour
         {
             MemoryObj.GetComponent<GameMem>().Boss2Lever2 = true;
             Source.Play();
-            if (MemoryObj.GetComponent<GameMem>().Boss2Lever2 == true) { LiftToBoss.GetComponent<Animator>().enabled = true; LeverOn.SetActive(true); }
+           
         }
+      if (MemoryObj.GetComponent<GameMem>().Boss2Lever2 == true) { LeverOn.SetActive(true); Door.GetComponent<Animator>().SetTrigger("Open"); }
+
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -71040,7 +71040,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh568518
+  m_Name: pb_Mesh588180
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -102354,6 +102354,11 @@ PrefabInstance:
       propertyPath: Cam
       value: 
       objectReference: {fileID: 789117411}
+    - target: {fileID: 4818841141353686649, guid: 645eb89fd5ef9564098cf832afabf01e,
+        type: 3}
+      propertyPath: SRspeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5622487331721093441, guid: 645eb89fd5ef9564098cf832afabf01e,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -113522,7 +113527,7 @@ PrefabInstance:
     - target: {fileID: 2577839985725380722, guid: 604dba6cf4a4f4843a7283f97b7857bd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -114030,6 +114035,11 @@ PrefabInstance:
       propertyPath: HPBar
       value: 
       objectReference: {fileID: 1972717830}
+    - target: {fileID: 2150853440961857096, guid: 46b673796568fdb42aa3ed0e3df63531,
+        type: 3}
+      propertyPath: HP
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2150853440961857096, guid: 46b673796568fdb42aa3ed0e3df63531,
         type: 3}
       propertyPath: HPBar
