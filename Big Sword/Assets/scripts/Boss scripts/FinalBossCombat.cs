@@ -47,8 +47,9 @@ public class FinalBossCombat : MonoBehaviour
         if (AtkT < 1.45f && attack3 == true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; navMeshAgent.stoppingDistance = 1f; }
 
 
+
         if (AtkT < 0.5f && attackGrab == true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 50f;  }
-        if (AtkT > 0.5f && AtkT < 1f && attackGrab == true) { navMeshAgent.speed = 10f; navMeshAgent.angularSpeed = 600f; }
+        if (AtkT > 0.5f && AtkT < 1f && attackGrab == true) { navMeshAgent.speed = 10f;  navMeshAgent.angularSpeed = 600f; }
         if (AtkT > 1f && AtkT < 2f && attackGrab == true) {  navMeshAgent.speed = 1f; }
         
        
@@ -72,8 +73,8 @@ public class FinalBossCombat : MonoBehaviour
 
         if ((PhaseChange == true) && Vector3.Distance(transform.position, player.transform.position) < Atk1Range) { Atk4WaitT += Time.deltaTime; }
 
-        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3f); }
-        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3f); }
+        if ((PhaseChange == false) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(4f); }
+        if ((PhaseChange == true) && (AtkT <= 0f) && (Vector3.Distance(transform.position, player.transform.position) > Atk3Range)) { Attack3(3.5f); }
 
         if ((PhaseChange == true) && (AtkT <= 0f) && (Atk4WaitT >= 5f) && (Vector3.Distance(transform.position, player.transform.position) < Atk1Range)) { AttackGrab(); }
 
@@ -121,7 +122,7 @@ public class FinalBossCombat : MonoBehaviour
     public void Phase()
     {
         navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f;
-        AtkT = 3.5f;
+        AtkT = 9f;
         anim.SetBool("Phase2", true);
         anim.SetTrigger("PhaseChange");
     }
@@ -146,7 +147,7 @@ public class FinalBossCombat : MonoBehaviour
 
         HPBar.SetActive(false);
         GetComponent<FinalBossMove>().enabled = false;
-        navMeshAgent.enabled = false;       
+        navMeshAgent.enabled = false;
         anim.SetTrigger("Dead");
         HP = 2;
         ReturnObj.SetActive(true);
