@@ -17,7 +17,7 @@ public class FinalBossIntro : MonoBehaviour
     {
         Timey += Time.deltaTime;
 
-        if (Timey >= 25f)
+        if (Timey >= 22f)
         {
             Player.GetComponentInChildren<PlayerCombat>().enabled = true;
             Player.GetComponent<PlayerMove>().enabled = true;

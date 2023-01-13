@@ -7,7 +7,7 @@ public class FinalBossCombat : MonoBehaviour
     GameObject player;
     Animator anim;
     AudioSource Source;
-    public GameObject HPBar, ReturnObj, PlayerArmature, BossHPUI;
+    public GameObject HPBar, ReturnObj, PlayerArmature, BossHPUI, musicP1, musicP2;
 
     private NavMeshAgent navMeshAgent;
 
@@ -36,15 +36,24 @@ public class FinalBossCombat : MonoBehaviour
     {
         if (HP <= 0) { dead = true; }
         if (HP <= 30 && PhaseChange == false) { Phase(); PhaseChange = true; }
-        if (dead == true && AtkT < 20f) { Killed(); AtkT = 200f; }
+        if (dead == true && AtkT < 20f) { Killed();
+            AtkT = 2000f;
+        }
+        if (dead) { ReturnObj.SetActive(true); }
         HPBar.transform.localScale = new Vector3(0.5f, 0.1f, HP);
 
-        if (AtkT > 0f) { AtkT -= Time.deltaTime; } else { navMeshAgent.speed = 1.8f; navMeshAgent.angularSpeed = 360f; }
+        if (HP > 30)
+        {
+            musicP1.SetActive(true);
+            musicP2.SetActive(false);
+        }
+
+        if (AtkT > 0f) { AtkT -= Time.deltaTime; } else { navMeshAgent.speed = 1.8f; navMeshAgent.angularSpeed = 360f; attackGrab = false; }
 
 
         if (AtkT > 2f && AtkT < 2.5f && attack3 == true) { navMeshAgent.angularSpeed = 6000f; navMeshAgent.speed = 1f; }
         if (AtkT > 1.45f && AtkT < 2f && attack3 == true) { navMeshAgent.speed = 500f; navMeshAgent.stoppingDistance = 5f; }
-        if (AtkT < 1.45f && attack3 == true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; navMeshAgent.stoppingDistance = 1f; }
+        if (AtkT < 1.45f && attack3 == true) { navMeshAgent.speed = 0f; navMeshAgent.angularSpeed = 0f; navMeshAgent.stoppingDistance = 2f; }
 
 
 
@@ -125,6 +134,8 @@ public class FinalBossCombat : MonoBehaviour
         AtkT = 9f;
         anim.SetBool("Phase2", true);
         anim.SetTrigger("PhaseChange");
+        musicP2.SetActive(true);
+        musicP1.SetActive(false);
     }
     public void AttackGrab()
     {
@@ -144,13 +155,12 @@ public class FinalBossCombat : MonoBehaviour
 
     void Killed()
     {
-
+        ReturnObj.SetActive(true);
         HPBar.SetActive(false);
         GetComponent<FinalBossMove>().enabled = false;
         navMeshAgent.enabled = false;
         anim.SetTrigger("Dead");
         HP = 2;
-        ReturnObj.SetActive(true);
     }
     private void OnTriggerEnter(Collider other)
     {
